@@ -1,0 +1,19 @@
+{
+  "APP_NAME": "Sistema Médico",
+  "About": "Acerca",
+  "account": "Cuenta",
+  "Hello world !": "Hola mundo",
+  "Home": "Inicio",
+  "Logged in as": "Hola, ",
+  "Login": "Login",
+  "Logout": "Salir",
+  "Password": "Contraseña",
+  "Password is required": "Contraseña necesario",
+  "Email": "Correo",
+  "Username": "Usuario",
+  "Username is required": "Usuario es necesario",
+  "Email is required": "Correo necesario",
+  "Username or password incorrect.": "Usuario o contraseña incorrectos.",
+  "Remember me": "Recuérdame",
+  "Version": "Versión"
+}

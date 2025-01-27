@@ -1,0 +1,1145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ControlMedicoDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ControlMedicoDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Especialidads" EntityType="ControlMedicoDBModel.Especialidad" />
+    <EntitySet Name="Clientes" EntityType="ControlMedicoDBModel.Cliente" />
+    <EntitySet Name="EstatusSuscripcions" EntityType="ControlMedicoDBModel.EstatusSuscripcion" />
+    <EntitySet Name="Suscripcions" EntityType="ControlMedicoDBModel.Suscripcion" />
+    <AssociationSet Name="FK_Suscriptor_Cliente" Association="ControlMedicoDBModel.FK_Suscriptor_Cliente">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Suscripcion" EntitySet="Suscripcions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suscriptor_EstatusSuscriptor" Association="ControlMedicoDBModel.FK_Suscriptor_EstatusSuscriptor">
+      <End Role="EstatusSuscripcion" EntitySet="EstatusSuscripcions" />
+      <End Role="Suscripcion" EntitySet="Suscripcions" />
+    </AssociationSet>
+    <EntitySet Name="EstatusCitas" EntityType="ControlMedicoDBModel.EstatusCita" />
+    <EntitySet Name="Escolaridads" EntityType="ControlMedicoDBModel.Escolaridad" />
+    <EntitySet Name="EstatusTransaccions" EntityType="ControlMedicoDBModel.EstatusTransaccion" />
+    <EntitySet Name="OperacionContables" EntityType="ControlMedicoDBModel.OperacionContable" />
+    <EntitySet Name="TipoTransaccions" EntityType="ControlMedicoDBModel.TipoTransaccion" />
+    <EntitySet Name="Medicamentoes" EntityType="ControlMedicoDBModel.Medicamento" />
+    <EntitySet Name="TipoCitas" EntityType="ControlMedicoDBModel.TipoCita" />
+    <EntitySet Name="Institucions" EntityType="ControlMedicoDBModel.Institucion" />
+    <EntitySet Name="Medicos" EntityType="ControlMedicoDBModel.Medico" />
+    <EntitySet Name="Ocupacions" EntityType="ControlMedicoDBModel.Ocupacion" />
+    <AssociationSet Name="FK_Medico_Especialidad" Association="ControlMedicoDBModel.FK_Medico_Especialidad">
+      <End Role="Especialidad" EntitySet="Especialidads" />
+      <End Role="Medico" EntitySet="Medicos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Medico_Institucion" Association="ControlMedicoDBModel.FK_Medico_Institucion">
+      <End Role="Institucion" EntitySet="Institucions" />
+      <End Role="Medico" EntitySet="Medicos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Medicamento_Medicamento" Association="ControlMedicoDBModel.FK_Medicamento_Medicamento">
+      <End Role="Medico" EntitySet="Medicos" />
+      <End Role="Medicamento" EntitySet="Medicamentoes" />
+    </AssociationSet>
+    <EntitySet Name="RecetaMedicamentoes" EntityType="ControlMedicoDBModel.RecetaMedicamento" />
+    <AssociationSet Name="FK_RecetaMedicamento_Medicamento" Association="ControlMedicoDBModel.FK_RecetaMedicamento_Medicamento">
+      <End Role="Medicamento" EntitySet="Medicamentoes" />
+      <End Role="RecetaMedicamento" EntitySet="RecetaMedicamentoes" />
+    </AssociationSet>
+    <EntitySet Name="EstatusOrdens" EntityType="ControlMedicoDBModel.EstatusOrden" />
+    <EntitySet Name="PacienteMedicoes" EntityType="ControlMedicoDBModel.PacienteMedico" />
+    <AssociationSet Name="FK_PacienteMedico_PacienteMedico" Association="ControlMedicoDBModel.FK_PacienteMedico_PacienteMedico">
+      <End Role="Medico" EntitySet="Medicos" />
+      <End Role="PacienteMedico" EntitySet="PacienteMedicoes" />
+    </AssociationSet>
+    <EntitySet Name="Transaccions" EntityType="ControlMedicoDBModel.Transaccion" />
+    <AssociationSet Name="FK_Transaccion_EstatusTransaccion" Association="ControlMedicoDBModel.FK_Transaccion_EstatusTransaccion">
+      <End Role="EstatusTransaccion" EntitySet="EstatusTransaccions" />
+      <End Role="Transaccion" EntitySet="Transaccions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaccion_OperacionContable" Association="ControlMedicoDBModel.FK_Transaccion_OperacionContable">
+      <End Role="OperacionContable" EntitySet="OperacionContables" />
+      <End Role="Transaccion" EntitySet="Transaccions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transaccion_TipoTransaccion" Association="ControlMedicoDBModel.FK_Transaccion_TipoTransaccion">
+      <End Role="TipoTransaccion" EntitySet="TipoTransaccions" />
+      <End Role="Transaccion" EntitySet="Transaccions" />
+    </AssociationSet>
+    <EntitySet Name="HistoricoOrdens" EntityType="ControlMedicoDBModel.HistoricoOrden" />
+    <AssociationSet Name="FK_HistoricoOrden_EstatusOrden" Association="ControlMedicoDBModel.FK_HistoricoOrden_EstatusOrden">
+      <End Role="EstatusOrden" EntitySet="EstatusOrdens" />
+      <End Role="HistoricoOrden" EntitySet="HistoricoOrdens" />
+    </AssociationSet>
+    <EntitySet Name="AspNetUsers" EntityType="ControlMedicoDBModel.AspNetUser" />
+    <EntitySet Name="Ordens" EntityType="ControlMedicoDBModel.Orden" />
+    <AssociationSet Name="FK_Orden_EstatusOrden" Association="ControlMedicoDBModel.FK_Orden_EstatusOrden">
+      <End Role="EstatusOrden" EntitySet="EstatusOrdens" />
+      <End Role="Orden" EntitySet="Ordens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoricoOrden_Orden" Association="ControlMedicoDBModel.FK_HistoricoOrden_Orden">
+      <End Role="Orden" EntitySet="Ordens" />
+      <End Role="HistoricoOrden" EntitySet="HistoricoOrdens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orden_Medico" Association="ControlMedicoDBModel.FK_Orden_Medico">
+      <End Role="Medico" EntitySet="Medicos" />
+      <End Role="Orden" EntitySet="Ordens" />
+    </AssociationSet>
+    <EntitySet Name="ExistenciaMedicamentoes" EntityType="ControlMedicoDBModel.ExistenciaMedicamento" />
+    <EntitySet Name="InventarioMedicamentoes" EntityType="ControlMedicoDBModel.InventarioMedicamento" />
+    <AssociationSet Name="FK_ExistenciaMedicamento_Medicamento" Association="ControlMedicoDBModel.FK_ExistenciaMedicamento_Medicamento">
+      <End Role="Medicamento" EntitySet="Medicamentoes" />
+      <End Role="ExistenciaMedicamento" EntitySet="ExistenciaMedicamentoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventarioMedicamento_Medicamento" Association="ControlMedicoDBModel.FK_InventarioMedicamento_Medicamento">
+      <End Role="Medicamento" EntitySet="Medicamentoes" />
+      <End Role="InventarioMedicamento" EntitySet="InventarioMedicamentoes" />
+    </AssociationSet>
+    <EntitySet Name="Recetas" EntityType="ControlMedicoDBModel.Receta" />
+    <AssociationSet Name="FK_Receta_Medico" Association="ControlMedicoDBModel.FK_Receta_Medico">
+      <End Role="Medico" EntitySet="Medicos" />
+      <End Role="Receta" EntitySet="Recetas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receta_Receta" Association="ControlMedicoDBModel.FK_Receta_Receta">
+      <End Role="Receta" EntitySet="Recetas" />
+      <End Role="Receta1" EntitySet="Recetas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RecetaMedicamento_Receta" Association="ControlMedicoDBModel.FK_RecetaMedicamento_Receta">
+      <End Role="Receta" EntitySet="Recetas" />
+      <End Role="RecetaMedicamento" EntitySet="RecetaMedicamentoes" />
+    </AssociationSet>
+    <EntitySet Name="LugarNacimientoes" EntityType="ControlMedicoDBModel.LugarNacimiento" />
+    <EntitySet Name="Pacientes" EntityType="ControlMedicoDBModel.Paciente" />
+    <AssociationSet Name="FK_Paciente_Escolaridad" Association="ControlMedicoDBModel.FK_Paciente_Escolaridad">
+      <End Role="Escolaridad" EntitySet="Escolaridads" />
+      <End Role="Paciente" EntitySet="Pacientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paciente_LugarNacimiento" Association="ControlMedicoDBModel.FK_Paciente_LugarNacimiento">
+      <End Role="LugarNacimiento" EntitySet="LugarNacimientoes" />
+      <End Role="Paciente" EntitySet="Pacientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paciente_Ocupacion" Association="ControlMedicoDBModel.FK_Paciente_Ocupacion">
+      <End Role="Ocupacion" EntitySet="Ocupacions" />
+      <End Role="Paciente" EntitySet="Pacientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orden_Paciente" Association="ControlMedicoDBModel.FK_Orden_Paciente">
+      <End Role="Paciente" EntitySet="Pacientes" />
+      <End Role="Orden" EntitySet="Ordens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PacienteMedico_Paciente" Association="ControlMedicoDBModel.FK_PacienteMedico_Paciente">
+      <End Role="Paciente" EntitySet="Pacientes" />
+      <End Role="PacienteMedico" EntitySet="PacienteMedicoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Receta_Paciente" Association="ControlMedicoDBModel.FK_Receta_Paciente">
+      <End Role="Paciente" EntitySet="Pacientes" />
+      <End Role="Receta" EntitySet="Recetas" />
+    </AssociationSet>
+    <EntitySet Name="Diagnosticoes" EntityType="ControlMedicoDBModel.Diagnostico" />
+    <AssociationSet Name="FK_Diagnostico_Medico" Association="ControlMedicoDBModel.FK_Diagnostico_Medico">
+      <End Role="Medico" EntitySet="Medicos" />
+      <End Role="Diagnostico" EntitySet="Diagnosticoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diagnostico_Paciente" Association="ControlMedicoDBModel.FK_Diagnostico_Paciente">
+      <End Role="Paciente" EntitySet="Pacientes" />
+      <End Role="Diagnostico" EntitySet="Diagnosticoes" />
+    </AssociationSet>
+    <EntitySet Name="MedioNotificacions" EntityType="ControlMedicoDBModel.MedioNotificacion" />
+    <EntitySet Name="TipoNotificacions" EntityType="ControlMedicoDBModel.TipoNotificacion" />
+    <EntitySet Name="Configuracions" EntityType="ControlMedicoDBModel.Configuracion" />
+    <EntitySet Name="ConfiguracionMedicoes" EntityType="ControlMedicoDBModel.ConfiguracionMedico" />
+    <EntitySet Name="Notificacions" EntityType="ControlMedicoDBModel.Notificacion" />
+    <EntitySet Name="Especimen" EntityType="ControlMedicoDBModel.Especiman" />
+    <EntitySet Name="Patologias" EntityType="ControlMedicoDBModel.Patologia" />
+    <AssociationSet Name="FK_Orden_Especimen" Association="ControlMedicoDBModel.FK_Orden_Especimen">
+      <End Role="Especiman" EntitySet="Especimen" />
+      <End Role="Orden" EntitySet="Ordens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paciente_Patologia" Association="ControlMedicoDBModel.FK_Paciente_Patologia">
+      <End Role="Patologia" EntitySet="Patologias" />
+      <End Role="Paciente" EntitySet="Pacientes" />
+    </AssociationSet>
+    <EntitySet Name="Citas" EntityType="ControlMedicoDBModel.Cita" />
+    <AssociationSet Name="FK_Cita_EstatusCita" Association="ControlMedicoDBModel.FK_Cita_EstatusCita">
+      <End Role="EstatusCita" EntitySet="EstatusCitas" />
+      <End Role="Cita" EntitySet="Citas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cita_Medico" Association="ControlMedicoDBModel.FK_Cita_Medico">
+      <End Role="Medico" EntitySet="Medicos" />
+      <End Role="Cita" EntitySet="Citas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cita_Paciente" Association="ControlMedicoDBModel.FK_Cita_Paciente">
+      <End Role="Paciente" EntitySet="Pacientes" />
+      <End Role="Cita" EntitySet="Citas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cita_TipoCita" Association="ControlMedicoDBModel.FK_Cita_TipoCita">
+      <End Role="TipoCita" EntitySet="TipoCitas" />
+      <End Role="Cita" EntitySet="Citas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Diagnostico_Cita" Association="ControlMedicoDBModel.FK_Diagnostico_Cita">
+      <End Role="Cita" EntitySet="Citas" />
+      <End Role="Diagnostico" EntitySet="Diagnosticoes" />
+    </AssociationSet>
+    <EntitySet Name="ConfiguracionReportes" EntityType="ControlMedicoDBModel.ConfiguracionReporte" />
+    <EntitySet Name="TipoReportes" EntityType="ControlMedicoDBModel.TipoReporte" />
+    <AssociationSet Name="FK_ConfiguracionReporte_Medico" Association="ControlMedicoDBModel.FK_ConfiguracionReporte_Medico">
+      <End Role="Medico" EntitySet="Medicos" />
+      <End Role="ConfiguracionReporte" EntitySet="ConfiguracionReportes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfiguracionReporte_TipoReporte" Association="ControlMedicoDBModel.FK_ConfiguracionReporte_TipoReporte">
+      <End Role="TipoReporte" EntitySet="TipoReportes" />
+      <End Role="ConfiguracionReporte" EntitySet="ConfiguracionReportes" />
+    </AssociationSet>
+    <EntitySet Name="TipoReporteVariables" EntityType="ControlMedicoDBModel.TipoReporteVariable" />
+  </EntityContainer>
+  <EntityType Name="Especialidad">
+    <Key>
+      <PropertyRef Name="IdEspecialidad" />
+    </Key>
+    <Property Name="IdEspecialidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="IdSuscripcion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Medicos" Relationship="ControlMedicoDBModel.FK_Medico_Especialidad" FromRole="Especialidad" ToRole="Medico" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Identificacion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Suscripcions" Relationship="ControlMedicoDBModel.FK_Suscriptor_Cliente" FromRole="Cliente" ToRole="Suscripcion" />
+  </EntityType>
+  <EntityType Name="EstatusSuscripcion">
+    <Key>
+      <PropertyRef Name="IdEstatusSuscriptor" />
+    </Key>
+    <Property Name="IdEstatusSuscriptor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Suscripcions" Relationship="ControlMedicoDBModel.FK_Suscriptor_EstatusSuscriptor" FromRole="EstatusSuscripcion" ToRole="Suscripcion" />
+  </EntityType>
+  <EntityType Name="Suscripcion">
+    <Key>
+      <PropertyRef Name="IdSuscriptor" />
+    </Key>
+    <Property Name="IdSuscriptor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCliente" Type="Int32" Nullable="false" />
+    <Property Name="MaxUsuarios" Type="Int32" Nullable="false" />
+    <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaFin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Estatus" Type="Int32" Nullable="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="ControlMedicoDBModel.FK_Suscriptor_Cliente" FromRole="Suscripcion" ToRole="Cliente" />
+    <NavigationProperty Name="EstatusSuscripcion" Relationship="ControlMedicoDBModel.FK_Suscriptor_EstatusSuscriptor" FromRole="Suscripcion" ToRole="EstatusSuscripcion" />
+  </EntityType>
+  <Association Name="FK_Suscriptor_Cliente">
+    <End Type="ControlMedicoDBModel.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Suscripcion" Role="Suscripcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Suscripcion">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suscriptor_EstatusSuscriptor">
+    <End Type="ControlMedicoDBModel.EstatusSuscripcion" Role="EstatusSuscripcion" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Suscripcion" Role="Suscripcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstatusSuscripcion">
+        <PropertyRef Name="IdEstatusSuscriptor" />
+      </Principal>
+      <Dependent Role="Suscripcion">
+        <PropertyRef Name="Estatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="EstatusCita">
+    <Key>
+      <PropertyRef Name="IdEstatusCita" />
+    </Key>
+    <Property Name="IdEstatusCita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Citas" Relationship="ControlMedicoDBModel.FK_Cita_EstatusCita" FromRole="EstatusCita" ToRole="Cita" />
+  </EntityType>
+  <EntityType Name="Escolaridad">
+    <Key>
+      <PropertyRef Name="IdEscolaridad" />
+    </Key>
+    <Property Name="IdEscolaridad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pacientes" Relationship="ControlMedicoDBModel.FK_Paciente_Escolaridad" FromRole="Escolaridad" ToRole="Paciente" />
+  </EntityType>
+  <EntityType Name="EstatusTransaccion">
+    <Key>
+      <PropertyRef Name="IdEstatusTransaccion" />
+    </Key>
+    <Property Name="IdEstatusTransaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" />
+    <NavigationProperty Name="Transaccions" Relationship="ControlMedicoDBModel.FK_Transaccion_EstatusTransaccion" FromRole="EstatusTransaccion" ToRole="Transaccion" />
+  </EntityType>
+  <EntityType Name="OperacionContable">
+    <Key>
+      <PropertyRef Name="IdOperacionContable" />
+    </Key>
+    <Property Name="IdOperacionContable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Transaccions" Relationship="ControlMedicoDBModel.FK_Transaccion_OperacionContable" FromRole="OperacionContable" ToRole="Transaccion" />
+  </EntityType>
+  <EntityType Name="TipoTransaccion">
+    <Key>
+      <PropertyRef Name="IdTipoTransaccion" />
+    </Key>
+    <Property Name="IdTipoTransaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Transaccions" Relationship="ControlMedicoDBModel.FK_Transaccion_TipoTransaccion" FromRole="TipoTransaccion" ToRole="Transaccion" />
+  </EntityType>
+  <EntityType Name="Medicamento">
+    <Key>
+      <PropertyRef Name="IdMedicamento" />
+    </Key>
+    <Property Name="IdMedicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Medico" Relationship="ControlMedicoDBModel.FK_Medicamento_Medicamento" FromRole="Medicamento" ToRole="Medico" />
+    <NavigationProperty Name="RecetaMedicamentoes" Relationship="ControlMedicoDBModel.FK_RecetaMedicamento_Medicamento" FromRole="Medicamento" ToRole="RecetaMedicamento" />
+    <NavigationProperty Name="ExistenciaMedicamentoes" Relationship="ControlMedicoDBModel.FK_ExistenciaMedicamento_Medicamento" FromRole="Medicamento" ToRole="ExistenciaMedicamento" />
+    <NavigationProperty Name="InventarioMedicamentoes" Relationship="ControlMedicoDBModel.FK_InventarioMedicamento_Medicamento" FromRole="Medicamento" ToRole="InventarioMedicamento" />
+  </EntityType>
+  <EntityType Name="TipoCita">
+    <Key>
+      <PropertyRef Name="IdTipoCita" />
+    </Key>
+    <Property Name="IdTipoCita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="IdSuscripcion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Citas" Relationship="ControlMedicoDBModel.FK_Cita_TipoCita" FromRole="TipoCita" ToRole="Cita" />
+  </EntityType>
+  <EntityType Name="Institucion">
+    <Key>
+      <PropertyRef Name="IdInstitucion" />
+    </Key>
+    <Property Name="IdInstitucion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="RFC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="IdSuscripcion" Type="Int32" />
+    <Property Name="Activo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Medicos" Relationship="ControlMedicoDBModel.FK_Medico_Institucion" FromRole="Institucion" ToRole="Medico" />
+  </EntityType>
+  <EntityType Name="Medico">
+    <Key>
+      <PropertyRef Name="IdMedico" />
+    </Key>
+    <Property Name="IdMedico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdEspecialidad" Type="Int32" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IdSuscripcion" Type="Int32" Nullable="false" />
+    <Property Name="IdInstitucion" Type="Int32" />
+    <Property Name="CedulaProfesional" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Foto" Type="Binary" MaxLength="100" FixedLength="false" />
+    <NavigationProperty Name="Especialidad" Relationship="ControlMedicoDBModel.FK_Medico_Especialidad" FromRole="Medico" ToRole="Especialidad" />
+    <NavigationProperty Name="Institucion" Relationship="ControlMedicoDBModel.FK_Medico_Institucion" FromRole="Medico" ToRole="Institucion" />
+    <NavigationProperty Name="Medicamentoes" Relationship="ControlMedicoDBModel.FK_Medicamento_Medicamento" FromRole="Medico" ToRole="Medicamento" />
+    <NavigationProperty Name="PacienteMedicoes" Relationship="ControlMedicoDBModel.FK_PacienteMedico_PacienteMedico" FromRole="Medico" ToRole="PacienteMedico" />
+    <NavigationProperty Name="Ordens" Relationship="ControlMedicoDBModel.FK_Orden_Medico" FromRole="Medico" ToRole="Orden" />
+    <NavigationProperty Name="Recetas" Relationship="ControlMedicoDBModel.FK_Receta_Medico" FromRole="Medico" ToRole="Receta" />
+    <NavigationProperty Name="Diagnosticoes" Relationship="ControlMedicoDBModel.FK_Diagnostico_Medico" FromRole="Medico" ToRole="Diagnostico" />
+    <NavigationProperty Name="Citas" Relationship="ControlMedicoDBModel.FK_Cita_Medico" FromRole="Medico" ToRole="Cita" />
+    <NavigationProperty Name="ConfiguracionReportes" Relationship="ControlMedicoDBModel.FK_ConfiguracionReporte_Medico" FromRole="Medico" ToRole="ConfiguracionReporte" />
+  </EntityType>
+  <EntityType Name="Ocupacion">
+    <Key>
+      <PropertyRef Name="IdOcupacion" />
+    </Key>
+    <Property Name="IdOcupacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clave" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pacientes" Relationship="ControlMedicoDBModel.FK_Paciente_Ocupacion" FromRole="Ocupacion" ToRole="Paciente" />
+  </EntityType>
+  <Association Name="FK_Medico_Especialidad">
+    <End Type="ControlMedicoDBModel.Especialidad" Role="Especialidad" Multiplicity="0..1" />
+    <End Type="ControlMedicoDBModel.Medico" Role="Medico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Especialidad">
+        <PropertyRef Name="IdEspecialidad" />
+      </Principal>
+      <Dependent Role="Medico">
+        <PropertyRef Name="IdEspecialidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Medico_Institucion">
+    <End Type="ControlMedicoDBModel.Institucion" Role="Institucion" Multiplicity="0..1" />
+    <End Type="ControlMedicoDBModel.Medico" Role="Medico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institucion">
+        <PropertyRef Name="IdInstitucion" />
+      </Principal>
+      <Dependent Role="Medico">
+        <PropertyRef Name="IdInstitucion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Medicamento_Medicamento">
+    <End Type="ControlMedicoDBModel.Medico" Role="Medico" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Medicamento" Role="Medicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="IdMedico" />
+      </Principal>
+      <Dependent Role="Medicamento">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RecetaMedicamento">
+    <Key>
+      <PropertyRef Name="IdRecetaMedicamento" />
+    </Key>
+    <Property Name="IdRecetaMedicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdReceta" Type="Int32" Nullable="false" />
+    <Property Name="IdMedicamento" Type="Int32" />
+    <Property Name="Cantidad" Type="Int32" />
+    <Property Name="Frecuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Medicamento" Relationship="ControlMedicoDBModel.FK_RecetaMedicamento_Medicamento" FromRole="RecetaMedicamento" ToRole="Medicamento" />
+    <NavigationProperty Name="Receta" Relationship="ControlMedicoDBModel.FK_RecetaMedicamento_Receta" FromRole="RecetaMedicamento" ToRole="Receta" />
+  </EntityType>
+  <Association Name="FK_RecetaMedicamento_Medicamento">
+    <End Type="ControlMedicoDBModel.Medicamento" Role="Medicamento" Multiplicity="0..1" />
+    <End Type="ControlMedicoDBModel.RecetaMedicamento" Role="RecetaMedicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Principal>
+      <Dependent Role="RecetaMedicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="EstatusOrden">
+    <Key>
+      <PropertyRef Name="IdEstatusOrden" />
+    </Key>
+    <Property Name="IdEstatusOrden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="IdSuscripcion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HistoricoOrdens" Relationship="ControlMedicoDBModel.FK_HistoricoOrden_EstatusOrden" FromRole="EstatusOrden" ToRole="HistoricoOrden" />
+    <NavigationProperty Name="Ordens" Relationship="ControlMedicoDBModel.FK_Orden_EstatusOrden" FromRole="EstatusOrden" ToRole="Orden" />
+  </EntityType>
+  <EntityType Name="PacienteMedico">
+    <Key>
+      <PropertyRef Name="IdPacienteMedico" />
+    </Key>
+    <Property Name="IdPacienteMedico" Type="Int32" Nullable="false" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <Property Name="IdPaciente" Type="Int32" Nullable="false" />
+    <Property Name="IdSuscripcion" Type="Int32" />
+    <NavigationProperty Name="Medico" Relationship="ControlMedicoDBModel.FK_PacienteMedico_PacienteMedico" FromRole="PacienteMedico" ToRole="Medico" />
+    <NavigationProperty Name="Paciente" Relationship="ControlMedicoDBModel.FK_PacienteMedico_Paciente" FromRole="PacienteMedico" ToRole="Paciente" />
+  </EntityType>
+  <Association Name="FK_PacienteMedico_PacienteMedico">
+    <End Type="ControlMedicoDBModel.Medico" Role="Medico" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.PacienteMedico" Role="PacienteMedico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="IdMedico" />
+      </Principal>
+      <Dependent Role="PacienteMedico">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Transaccion">
+    <Key>
+      <PropertyRef Name="IdTransaccion" />
+    </Key>
+    <Property Name="IdTransaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdTipoTransaccion" Type="Int32" Nullable="false" />
+    <Property Name="IdOperacionContable" Type="Int32" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdGenerado" Type="Int32" Nullable="false" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+    <Property Name="NumReferencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="Estatus" Type="Int32" Nullable="false" />
+    <Property Name="Saldo" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="MontoPagado" Type="Decimal" Precision="16" Scale="2" />
+    <NavigationProperty Name="EstatusTransaccion" Relationship="ControlMedicoDBModel.FK_Transaccion_EstatusTransaccion" FromRole="Transaccion" ToRole="EstatusTransaccion" />
+    <NavigationProperty Name="OperacionContable" Relationship="ControlMedicoDBModel.FK_Transaccion_OperacionContable" FromRole="Transaccion" ToRole="OperacionContable" />
+    <NavigationProperty Name="TipoTransaccion" Relationship="ControlMedicoDBModel.FK_Transaccion_TipoTransaccion" FromRole="Transaccion" ToRole="TipoTransaccion" />
+  </EntityType>
+  <Association Name="FK_Transaccion_EstatusTransaccion">
+    <End Type="ControlMedicoDBModel.EstatusTransaccion" Role="EstatusTransaccion" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Transaccion" Role="Transaccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstatusTransaccion">
+        <PropertyRef Name="IdEstatusTransaccion" />
+      </Principal>
+      <Dependent Role="Transaccion">
+        <PropertyRef Name="Estatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaccion_OperacionContable">
+    <End Type="ControlMedicoDBModel.OperacionContable" Role="OperacionContable" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Transaccion" Role="Transaccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OperacionContable">
+        <PropertyRef Name="IdOperacionContable" />
+      </Principal>
+      <Dependent Role="Transaccion">
+        <PropertyRef Name="IdOperacionContable" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transaccion_TipoTransaccion">
+    <End Type="ControlMedicoDBModel.TipoTransaccion" Role="TipoTransaccion" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Transaccion" Role="Transaccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoTransaccion">
+        <PropertyRef Name="IdTipoTransaccion" />
+      </Principal>
+      <Dependent Role="Transaccion">
+        <PropertyRef Name="IdTipoTransaccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="HistoricoOrden">
+    <Key>
+      <PropertyRef Name="IdHistoricoOrden" />
+    </Key>
+    <Property Name="IdHistoricoOrden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdOrden" Type="Int32" Nullable="false" />
+    <Property Name="IdEstatusOrden" Type="Int32" Nullable="false" />
+    <Property Name="ClaveOrden" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="FechaEstatus" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdUsuarioModificacion" Type="Int32" />
+    <NavigationProperty Name="EstatusOrden" Relationship="ControlMedicoDBModel.FK_HistoricoOrden_EstatusOrden" FromRole="HistoricoOrden" ToRole="EstatusOrden" />
+    <NavigationProperty Name="Orden" Relationship="ControlMedicoDBModel.FK_HistoricoOrden_Orden" FromRole="HistoricoOrden" ToRole="Orden" />
+  </EntityType>
+  <Association Name="FK_HistoricoOrden_EstatusOrden">
+    <End Type="ControlMedicoDBModel.EstatusOrden" Role="EstatusOrden" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.HistoricoOrden" Role="HistoricoOrden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstatusOrden">
+        <PropertyRef Name="IdEstatusOrden" />
+      </Principal>
+      <Dependent Role="HistoricoOrden">
+        <PropertyRef Name="IdEstatusOrden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IdSuscripcion" Type="Int32" />
+    <Property Name="IdMedico" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Orden">
+    <Key>
+      <PropertyRef Name="IdOrden" />
+    </Key>
+    <Property Name="IdOrden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPaciente" Type="Int32" Nullable="false" />
+    <Property Name="IdMedicoEntrega" Type="Int32" Nullable="false" />
+    <Property Name="IdEspecimen" Type="Int32" />
+    <Property Name="FechaRecepcion" Type="DateTime" Precision="3" />
+    <Property Name="FechaEntregaReceptor" Type="DateTime" Precision="3" />
+    <Property Name="IdDiagnostico" Type="Int32" />
+    <Property Name="Monto" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="PersonaEntrega" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Estatus" Type="Int32" />
+    <Property Name="Pagado" Type="Int32" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="IdSuscripcion" Type="Int32" Nullable="false" />
+    <Property Name="IdMedicoRecepcion" Type="Int32" />
+    <Property Name="PersonaRecepcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="FechaEntregaOrigen" Type="DateTime" Precision="3" />
+    <Property Name="CorreoPersonaRecepcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MovilPersonaRecepcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EstatusOrden" Relationship="ControlMedicoDBModel.FK_Orden_EstatusOrden" FromRole="Orden" ToRole="EstatusOrden" />
+    <NavigationProperty Name="HistoricoOrdens" Relationship="ControlMedicoDBModel.FK_HistoricoOrden_Orden" FromRole="Orden" ToRole="HistoricoOrden" />
+    <NavigationProperty Name="Medico" Relationship="ControlMedicoDBModel.FK_Orden_Medico" FromRole="Orden" ToRole="Medico" />
+    <NavigationProperty Name="Paciente" Relationship="ControlMedicoDBModel.FK_Orden_Paciente" FromRole="Orden" ToRole="Paciente" />
+    <NavigationProperty Name="Especiman" Relationship="ControlMedicoDBModel.FK_Orden_Especimen" FromRole="Orden" ToRole="Especiman" />
+  </EntityType>
+  <Association Name="FK_Orden_EstatusOrden">
+    <End Type="ControlMedicoDBModel.EstatusOrden" Role="EstatusOrden" Multiplicity="0..1" />
+    <End Type="ControlMedicoDBModel.Orden" Role="Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstatusOrden">
+        <PropertyRef Name="IdEstatusOrden" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="Estatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoricoOrden_Orden">
+    <End Type="ControlMedicoDBModel.Orden" Role="Orden" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.HistoricoOrden" Role="HistoricoOrden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orden">
+        <PropertyRef Name="IdOrden" />
+      </Principal>
+      <Dependent Role="HistoricoOrden">
+        <PropertyRef Name="IdOrden" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orden_Medico">
+    <End Type="ControlMedicoDBModel.Medico" Role="Medico" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Orden" Role="Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="IdMedico" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="IdMedicoEntrega" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ExistenciaMedicamento">
+    <Key>
+      <PropertyRef Name="IdExistenciaMedicamento" />
+    </Key>
+    <Property Name="IdExistenciaMedicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMedicamento" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Medicamento" Relationship="ControlMedicoDBModel.FK_ExistenciaMedicamento_Medicamento" FromRole="ExistenciaMedicamento" ToRole="Medicamento" />
+  </EntityType>
+  <EntityType Name="InventarioMedicamento">
+    <Key>
+      <PropertyRef Name="IdInventarioMedicamento" />
+    </Key>
+    <Property Name="IdInventarioMedicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMedicamento" Type="Int32" Nullable="false" />
+    <Property Name="Codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FechaVencimiento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Medicamento" Relationship="ControlMedicoDBModel.FK_InventarioMedicamento_Medicamento" FromRole="InventarioMedicamento" ToRole="Medicamento" />
+  </EntityType>
+  <Association Name="FK_ExistenciaMedicamento_Medicamento">
+    <End Type="ControlMedicoDBModel.Medicamento" Role="Medicamento" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.ExistenciaMedicamento" Role="ExistenciaMedicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Principal>
+      <Dependent Role="ExistenciaMedicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventarioMedicamento_Medicamento">
+    <End Type="ControlMedicoDBModel.Medicamento" Role="Medicamento" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.InventarioMedicamento" Role="InventarioMedicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Principal>
+      <Dependent Role="InventarioMedicamento">
+        <PropertyRef Name="IdMedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Receta">
+    <Key>
+      <PropertyRef Name="IdReceta" />
+    </Key>
+    <Property Name="IdReceta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPaciente" Type="Int32" Nullable="false" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <Property Name="IdDiagnostico" Type="Int32" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Medico" Relationship="ControlMedicoDBModel.FK_Receta_Medico" FromRole="Receta" ToRole="Medico" />
+    <NavigationProperty Name="Receta1" Relationship="ControlMedicoDBModel.FK_Receta_Receta" FromRole="Receta" ToRole="Receta1" />
+    <NavigationProperty Name="Receta2" Relationship="ControlMedicoDBModel.FK_Receta_Receta" FromRole="Receta1" ToRole="Receta" />
+    <NavigationProperty Name="RecetaMedicamentoes" Relationship="ControlMedicoDBModel.FK_RecetaMedicamento_Receta" FromRole="Receta" ToRole="RecetaMedicamento" />
+    <NavigationProperty Name="Paciente" Relationship="ControlMedicoDBModel.FK_Receta_Paciente" FromRole="Receta" ToRole="Paciente" />
+  </EntityType>
+  <Association Name="FK_Receta_Medico">
+    <End Type="ControlMedicoDBModel.Medico" Role="Medico" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Receta" Role="Receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="IdMedico" />
+      </Principal>
+      <Dependent Role="Receta">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receta_Receta">
+    <End Type="ControlMedicoDBModel.Receta" Role="Receta" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Receta" Role="Receta1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Receta">
+        <PropertyRef Name="IdReceta" />
+      </Principal>
+      <Dependent Role="Receta1">
+        <PropertyRef Name="IdReceta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RecetaMedicamento_Receta">
+    <End Type="ControlMedicoDBModel.Receta" Role="Receta" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.RecetaMedicamento" Role="RecetaMedicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Receta">
+        <PropertyRef Name="IdReceta" />
+      </Principal>
+      <Dependent Role="RecetaMedicamento">
+        <PropertyRef Name="IdReceta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LugarNacimiento">
+    <Key>
+      <PropertyRef Name="IdLugarNacimiento" />
+    </Key>
+    <Property Name="IdLugarNacimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pacientes" Relationship="ControlMedicoDBModel.FK_Paciente_LugarNacimiento" FromRole="LugarNacimiento" ToRole="Paciente" />
+  </EntityType>
+  <EntityType Name="Paciente">
+    <Key>
+      <PropertyRef Name="IdPaciente" />
+    </Key>
+    <Property Name="IdPaciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrimerNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoCivil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="IdSuscripcion" Type="Int32" Nullable="false" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Escolaridad" Type="Int32" />
+    <Property Name="Patologia" Type="Int32" />
+    <Property Name="IdLugarNacimiento" Type="Int32" />
+    <Property Name="NombreFamiliar" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="TelefonoFamiliar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MedicamentoActual" Type="Int32" />
+    <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdOcupacion" Type="Int32" />
+    <Property Name="SeguroVida" Type="Int32" />
+    <Property Name="IdMedico" Type="Int32" />
+    <Property Name="SegundoNombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PrimerApellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SegundoApellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TelefonoMovil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Escolaridad1" Relationship="ControlMedicoDBModel.FK_Paciente_Escolaridad" FromRole="Paciente" ToRole="Escolaridad" />
+    <NavigationProperty Name="LugarNacimiento" Relationship="ControlMedicoDBModel.FK_Paciente_LugarNacimiento" FromRole="Paciente" ToRole="LugarNacimiento" />
+    <NavigationProperty Name="Ocupacion" Relationship="ControlMedicoDBModel.FK_Paciente_Ocupacion" FromRole="Paciente" ToRole="Ocupacion" />
+    <NavigationProperty Name="Ordens" Relationship="ControlMedicoDBModel.FK_Orden_Paciente" FromRole="Paciente" ToRole="Orden" />
+    <NavigationProperty Name="PacienteMedicoes" Relationship="ControlMedicoDBModel.FK_PacienteMedico_Paciente" FromRole="Paciente" ToRole="PacienteMedico" />
+    <NavigationProperty Name="Recetas" Relationship="ControlMedicoDBModel.FK_Receta_Paciente" FromRole="Paciente" ToRole="Receta" />
+    <NavigationProperty Name="Diagnosticoes" Relationship="ControlMedicoDBModel.FK_Diagnostico_Paciente" FromRole="Paciente" ToRole="Diagnostico" />
+    <NavigationProperty Name="Patologia1" Relationship="ControlMedicoDBModel.FK_Paciente_Patologia" FromRole="Paciente" ToRole="Patologia" />
+    <NavigationProperty Name="Citas" Relationship="ControlMedicoDBModel.FK_Cita_Paciente" FromRole="Paciente" ToRole="Cita" />
+  </EntityType>
+  <Association Name="FK_Paciente_Escolaridad">
+    <End Type="ControlMedicoDBModel.Escolaridad" Role="Escolaridad" Multiplicity="0..1" />
+    <End Type="ControlMedicoDBModel.Paciente" Role="Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Escolaridad">
+        <PropertyRef Name="IdEscolaridad" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="Escolaridad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paciente_LugarNacimiento">
+    <End Type="ControlMedicoDBModel.LugarNacimiento" Role="LugarNacimiento" Multiplicity="0..1" />
+    <End Type="ControlMedicoDBModel.Paciente" Role="Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LugarNacimiento">
+        <PropertyRef Name="IdLugarNacimiento" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="IdLugarNacimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paciente_Ocupacion">
+    <End Type="ControlMedicoDBModel.Ocupacion" Role="Ocupacion" Multiplicity="0..1" />
+    <End Type="ControlMedicoDBModel.Paciente" Role="Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ocupacion">
+        <PropertyRef Name="IdOcupacion" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="IdOcupacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orden_Paciente">
+    <End Type="ControlMedicoDBModel.Paciente" Role="Paciente" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Orden" Role="Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="IdPaciente" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="IdPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PacienteMedico_Paciente">
+    <End Type="ControlMedicoDBModel.Paciente" Role="Paciente" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.PacienteMedico" Role="PacienteMedico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="IdPaciente" />
+      </Principal>
+      <Dependent Role="PacienteMedico">
+        <PropertyRef Name="IdPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Receta_Paciente">
+    <End Type="ControlMedicoDBModel.Paciente" Role="Paciente" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Receta" Role="Receta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="IdPaciente" />
+      </Principal>
+      <Dependent Role="Receta">
+        <PropertyRef Name="IdPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Diagnostico">
+    <Key>
+      <PropertyRef Name="IdDiagnostico" />
+    </Key>
+    <Property Name="IdDiagnostico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPaciente" Type="Int32" Nullable="false" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Peso" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="Altura" Type="Decimal" Precision="16" Scale="2" />
+    <Property Name="Alergias" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="IdCita" Type="Int32" />
+    <NavigationProperty Name="Medico" Relationship="ControlMedicoDBModel.FK_Diagnostico_Medico" FromRole="Diagnostico" ToRole="Medico" />
+    <NavigationProperty Name="Paciente" Relationship="ControlMedicoDBModel.FK_Diagnostico_Paciente" FromRole="Diagnostico" ToRole="Paciente" />
+    <NavigationProperty Name="Cita" Relationship="ControlMedicoDBModel.FK_Diagnostico_Cita" FromRole="Diagnostico" ToRole="Cita" />
+  </EntityType>
+  <Association Name="FK_Diagnostico_Medico">
+    <End Type="ControlMedicoDBModel.Medico" Role="Medico" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Diagnostico" Role="Diagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="IdMedico" />
+      </Principal>
+      <Dependent Role="Diagnostico">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diagnostico_Paciente">
+    <End Type="ControlMedicoDBModel.Paciente" Role="Paciente" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Diagnostico" Role="Diagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="IdPaciente" />
+      </Principal>
+      <Dependent Role="Diagnostico">
+        <PropertyRef Name="IdPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MedioNotificacion">
+    <Key>
+      <PropertyRef Name="IdMedioNotificacion" />
+    </Key>
+    <Property Name="IdMedioNotificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoNotificacion">
+    <Key>
+      <PropertyRef Name="IdTipoNotificacion" />
+      <PropertyRef Name="IdMedico" />
+      <PropertyRef Name="Descripcion" />
+      <PropertyRef Name="Clave" />
+      <PropertyRef Name="Activo" />
+    </Key>
+    <Property Name="IdTipoNotificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Clave" Type="Int32" Nullable="false" />
+    <Property Name="Template" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Configuracion">
+    <Key>
+      <PropertyRef Name="IdConfiguracion" />
+    </Key>
+    <Property Name="IdConfiguracion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TipoConfiguracion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Valor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ConfiguracionMedico">
+    <Key>
+      <PropertyRef Name="IdConfiguracionMedico" />
+    </Key>
+    <Property Name="IdConfiguracionMedico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TipoConfiguracion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Valor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Notificacion">
+    <Key>
+      <PropertyRef Name="IdNotificacion" />
+    </Key>
+    <Property Name="IdNotificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <Property Name="IdPaciente" Type="Int32" />
+    <Property Name="IdTipoNotificacion" Type="Int32" />
+    <Property Name="Recursivo" Type="Int32" />
+    <Property Name="IdMedioNotificacion" Type="Int32" />
+    <Property Name="FechaNotificacion" Type="DateTime" Precision="3" />
+    <Property Name="HoraNotificacion" Type="DateTime" Precision="3" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="IdCita" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Especiman">
+    <Key>
+      <PropertyRef Name="IdEspecimen" />
+    </Key>
+    <Property Name="IdEspecimen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ordens" Relationship="ControlMedicoDBModel.FK_Orden_Especimen" FromRole="Especiman" ToRole="Orden" />
+  </EntityType>
+  <EntityType Name="Patologia">
+    <Key>
+      <PropertyRef Name="IdPatologia" />
+    </Key>
+    <Property Name="IdPatologia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <Property Name="IdMedico" Type="Int32" />
+    <NavigationProperty Name="Pacientes" Relationship="ControlMedicoDBModel.FK_Paciente_Patologia" FromRole="Patologia" ToRole="Paciente" />
+  </EntityType>
+  <Association Name="FK_Orden_Especimen">
+    <End Type="ControlMedicoDBModel.Especiman" Role="Especiman" Multiplicity="0..1" />
+    <End Type="ControlMedicoDBModel.Orden" Role="Orden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Especiman">
+        <PropertyRef Name="IdEspecimen" />
+      </Principal>
+      <Dependent Role="Orden">
+        <PropertyRef Name="IdEspecimen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paciente_Patologia">
+    <End Type="ControlMedicoDBModel.Patologia" Role="Patologia" Multiplicity="0..1" />
+    <End Type="ControlMedicoDBModel.Paciente" Role="Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patologia">
+        <PropertyRef Name="IdPatologia" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="Patologia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Cita">
+    <Key>
+      <PropertyRef Name="IdCita" />
+    </Key>
+    <Property Name="IdCita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <Property Name="IdPaciente" Type="Int32" />
+    <Property Name="FechaCitaDesde" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="Comentarios" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Titulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estatus" Type="Int32" Nullable="false" />
+    <Property Name="IdTipoCita" Type="Int32" Nullable="false" />
+    <Property Name="FechaCitaHasta" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="EstatusCita" Relationship="ControlMedicoDBModel.FK_Cita_EstatusCita" FromRole="Cita" ToRole="EstatusCita" />
+    <NavigationProperty Name="Medico" Relationship="ControlMedicoDBModel.FK_Cita_Medico" FromRole="Cita" ToRole="Medico" />
+    <NavigationProperty Name="Paciente" Relationship="ControlMedicoDBModel.FK_Cita_Paciente" FromRole="Cita" ToRole="Paciente" />
+    <NavigationProperty Name="TipoCita" Relationship="ControlMedicoDBModel.FK_Cita_TipoCita" FromRole="Cita" ToRole="TipoCita" />
+    <NavigationProperty Name="Diagnosticoes" Relationship="ControlMedicoDBModel.FK_Diagnostico_Cita" FromRole="Cita" ToRole="Diagnostico" />
+  </EntityType>
+  <Association Name="FK_Cita_EstatusCita">
+    <End Type="ControlMedicoDBModel.EstatusCita" Role="EstatusCita" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Cita" Role="Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstatusCita">
+        <PropertyRef Name="IdEstatusCita" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="Estatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cita_Medico">
+    <End Type="ControlMedicoDBModel.Medico" Role="Medico" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Cita" Role="Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="IdMedico" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cita_Paciente">
+    <End Type="ControlMedicoDBModel.Paciente" Role="Paciente" Multiplicity="0..1" />
+    <End Type="ControlMedicoDBModel.Cita" Role="Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="IdPaciente" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdPaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cita_TipoCita">
+    <End Type="ControlMedicoDBModel.TipoCita" Role="TipoCita" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.Cita" Role="Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCita">
+        <PropertyRef Name="IdTipoCita" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IdTipoCita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Diagnostico_Cita">
+    <End Type="ControlMedicoDBModel.Cita" Role="Cita" Multiplicity="0..1" />
+    <End Type="ControlMedicoDBModel.Diagnostico" Role="Diagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cita">
+        <PropertyRef Name="IdCita" />
+      </Principal>
+      <Dependent Role="Diagnostico">
+        <PropertyRef Name="IdCita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ConfiguracionReporte">
+    <Key>
+      <PropertyRef Name="IdConfiguracionReporte" />
+    </Key>
+    <Property Name="IdConfiguracionReporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdTipoReporte" Type="Int32" Nullable="false" />
+    <Property Name="Html" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IdMedico" Type="Int32" Nullable="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Medico" Relationship="ControlMedicoDBModel.FK_ConfiguracionReporte_Medico" FromRole="ConfiguracionReporte" ToRole="Medico" />
+    <NavigationProperty Name="TipoReporte" Relationship="ControlMedicoDBModel.FK_ConfiguracionReporte_TipoReporte" FromRole="ConfiguracionReporte" ToRole="TipoReporte" />
+  </EntityType>
+  <EntityType Name="TipoReporte">
+    <Key>
+      <PropertyRef Name="IdTipoReporte" />
+    </Key>
+    <Property Name="IdTipoReporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ConfiguracionReportes" Relationship="ControlMedicoDBModel.FK_ConfiguracionReporte_TipoReporte" FromRole="TipoReporte" ToRole="ConfiguracionReporte" />
+  </EntityType>
+  <Association Name="FK_ConfiguracionReporte_Medico">
+    <End Type="ControlMedicoDBModel.Medico" Role="Medico" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.ConfiguracionReporte" Role="ConfiguracionReporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="IdMedico" />
+      </Principal>
+      <Dependent Role="ConfiguracionReporte">
+        <PropertyRef Name="IdMedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfiguracionReporte_TipoReporte">
+    <End Type="ControlMedicoDBModel.TipoReporte" Role="TipoReporte" Multiplicity="1" />
+    <End Type="ControlMedicoDBModel.ConfiguracionReporte" Role="ConfiguracionReporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoReporte">
+        <PropertyRef Name="IdTipoReporte" />
+      </Principal>
+      <Dependent Role="ConfiguracionReporte">
+        <PropertyRef Name="IdTipoReporte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TipoReporteVariable">
+    <Key>
+      <PropertyRef Name="IdTipoReporteVariable" />
+    </Key>
+    <Property Name="IdTipoReporteVariable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdTipoReporte" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Entidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Propiedad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Html" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

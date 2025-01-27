@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ControlMedicoFileDBModelStoreContainer" CdmEntityContainer="ControlMedicoFileDBEntities">
+    <EntitySetMapping Name="TipoArchivo">
+      <EntityTypeMapping TypeName="ControlMedicoFileDBModel.TipoArchivo">
+        <MappingFragment StoreEntitySet="TipoArchivo">
+          <ScalarProperty Name="IdTipoArchivo" ColumnName="IdTipoArchivo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArchivoMedico">
+      <EntityTypeMapping TypeName="ControlMedicoFileDBModel.ArchivoMedico">
+        <MappingFragment StoreEntitySet="ArchivoMedico">
+          <ScalarProperty Name="ExtensionArchivo" ColumnName="ExtensionArchivo" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipoArchivo" ColumnName="IdTipoArchivo" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="IdArchivoMedico" ColumnName="IdArchivoMedico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArchivoPaciente">
+      <EntityTypeMapping TypeName="ControlMedicoFileDBModel.ArchivoPaciente">
+        <MappingFragment StoreEntitySet="ArchivoPaciente">
+          <ScalarProperty Name="ExtensionArchivo" ColumnName="ExtensionArchivo" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipoArchivo" ColumnName="IdTipoArchivo" />
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="IdArchivoPaciente" ColumnName="IdArchivoPaciente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArchivoDiagnostico">
+      <EntityTypeMapping TypeName="ControlMedicoFileDBModel.ArchivoDiagnostico">
+        <MappingFragment StoreEntitySet="ArchivoDiagnostico">
+          <ScalarProperty Name="ExtensionArchivo" ColumnName="ExtensionArchivo" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipoArchivo" ColumnName="IdTipoArchivo" />
+          <ScalarProperty Name="IdDiagnostico" ColumnName="IdDiagnostico" />
+          <ScalarProperty Name="IdArchivoDiagnostico" ColumnName="IdArchivoDiagnostico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArchivoOrden">
+      <EntityTypeMapping TypeName="ControlMedicoFileDBModel.ArchivoOrden">
+        <MappingFragment StoreEntitySet="ArchivoOrden">
+          <ScalarProperty Name="ExtensionArchivo" ColumnName="ExtensionArchivo" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipoArchivo" ColumnName="IdTipoArchivo" />
+          <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+          <ScalarProperty Name="IdArchivoOrden" ColumnName="IdArchivoOrden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

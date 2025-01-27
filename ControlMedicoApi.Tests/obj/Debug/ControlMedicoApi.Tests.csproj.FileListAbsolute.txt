@@ -1,0 +1,2 @@
+C:\Users\fernando.cespedes\source\Workspaces\MedTor\Desarrollo\ControlMedico\ControlMedicoApi.Tests\obj\Debug\ControlMedicoApi.Tests.csprojAssemblyReference.cache
+C:\Users\fernando.cespedes\source\Workspaces\MedTor\Desarrollo\ControlMedico\ControlMedicoApi.Tests\obj\Debug\ControlMedicoApi.Tests.csproj.CoreCompileInputs.cache

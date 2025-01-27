@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="844519e9b3b94a959dbd924b208da34c" Name="Diagram1">
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Especialidad" Width="1.5" PointX="0.75" PointY="7" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Cliente" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.EstatusSuscripcion" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Suscripcion" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Suscriptor_Cliente" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Suscriptor_EstatusSuscriptor" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.EstatusCita" Width="1.5" PointX="7.375" PointY="8.75" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Escolaridad" Width="1.5" PointX="10.75" PointY="14.5" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.EstatusTransaccion" Width="1.5" PointX="0.75" PointY="19" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.OperacionContable" Width="1.5" PointX="0.75" PointY="16.25" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.TipoTransaccion" Width="1.5" PointX="0.75" PointY="12.625" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Medicamento" Width="1.5" PointX="5.25" PointY="12" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.TipoCita" Width="1.5" PointX="13" PointY="10.375" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Institucion" Width="1.5" PointX="6.125" PointY="15.875" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Medico" Width="1.5" PointX="8.375" PointY="15.25" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Ocupacion" Width="1.5" PointX="10.75" PointY="9.625" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Medico_Especialidad" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Medico_Institucion" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Medicamento_Medicamento" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.RecetaMedicamento" Width="1.5" PointX="20.5" PointY="8.625" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_RecetaMedicamento_Medicamento" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.EstatusOrden" Width="1.5" PointX="16" PointY="2.125" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.PacienteMedico" Width="1.5" PointX="18.25" PointY="14" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_PacienteMedico_PacienteMedico" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Transaccion" Width="1.5" PointX="3" PointY="15" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Transaccion_EstatusTransaccion" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Transaccion_OperacionContable" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Transaccion_TipoTransaccion" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.HistoricoOrden" Width="1.5" PointX="25.5" PointY="5.5" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_HistoricoOrden_EstatusOrden" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.AspNetUser" Width="1.5" PointX="3.375" PointY="4.75" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Orden" Width="1.5" PointX="18.25" PointY="2.25" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Orden_EstatusOrden" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_HistoricoOrden_Orden" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Orden_Medico" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.ExistenciaMedicamento" Width="1.5" PointX="7.5" PointY="20.875" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.InventarioMedicamento" Width="1.5" PointX="7.5" PointY="11.875" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_ExistenciaMedicamento_Medicamento" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_InventarioMedicamento_Medicamento" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Receta" Width="1.5" PointX="15.25" PointY="9.375" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Receta_Medico" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Receta_Receta" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_RecetaMedicamento_Receta" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.LugarNacimiento" Width="1.5" PointX="10.75" PointY="4.625" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Paciente" Width="1.5" PointX="13" PointY="1.75" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Paciente_Escolaridad" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Paciente_LugarNacimiento" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Paciente_Ocupacion" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Orden_Paciente" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_PacienteMedico_Paciente" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Receta_Paciente" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Diagnostico" Width="1.5" PointX="20.5" PointY="11.875" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Diagnostico_Medico" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Diagnostico_Paciente" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.MedioNotificacion" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.TipoNotificacion" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Configuracion" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.ConfiguracionMedico" Width="1.5" PointX="15.375" PointY="5.75" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Notificacion" Width="1.5" PointX="17.375" PointY="9.75" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Especiman" Width="1.5" PointX="10.375" PointY="17.875" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Patologia" Width="1.5" PointX="10.75" PointY="1.5" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Orden_Especimen" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Paciente_Patologia" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.Cita" Width="1.5" PointX="15.25" PointY="13.75" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Cita_EstatusCita" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Cita_Medico" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Cita_Paciente" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Cita_TipoCita" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_Diagnostico_Cita" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.ConfiguracionReporte" Width="1.5" PointX="12.625" PointY="17.375" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.TipoReporte" Width="1.5" PointX="10.375" PointY="20.75" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_ConfiguracionReporte_Medico" />
+        <AssociationConnector Association="ControlMedicoDBModel.FK_ConfiguracionReporte_TipoReporte" />
+        <EntityTypeShape EntityType="ControlMedicoDBModel.TipoReporteVariable" Width="1.5" PointX="17.375" PointY="17.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

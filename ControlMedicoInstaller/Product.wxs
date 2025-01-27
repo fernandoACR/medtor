@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The name of the product -->
+<?define Name = "MedTor" ?>
+<!-- The Description of the product -->
+<?define Description = "MedTor is a desktop application." ?>
+<!-- The manufacturer, for setup package publisher and folder info -->
+<?define Manufacturer = "Artor Technologies" ?>
+<!-- The version number of this setup package-->
+<?define Version = "1.0.0" ?>
+<!-- UpgradeCode must be unique and not changed once the first version of the program is installed. -->
+<?define UpgradeCode = "{25DA3824-3F14-4040-826B-F8D1783E1288}" ?>
+<!-- The name of the Cabinet -->
+<?define CabName = "MedTor.cab" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:utilExt="http://schemas.microsoft.com/wix/UtilExtension" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+
+  <!--Variable for Sample Application Directory-->
+  <?define MedTor_TargetDir=$(var.ControlMedicoWinForms.TargetDir)?>
+
+  <Product Id="*" Name="$(var.Name)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCode)" Version="$(var.Version)" Language="1033">
+
+    <!--Setup or Installer with properties-->
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Manufacturer="$(var.Manufacturer)" />
+
+    <!--Application logo-->
+    <Icon Id="Logo.ico" SourceFile="Resources\logo.ico" />
+
+    <!--Application logo for Control Panel-->
+    <Property Id="ARPPRODUCTICON" Value="Logo.ico" />
+
+    <!--Embed Cabinet into single msi file-->
+    <Media Id="1" Cabinet="$(var.CabName)" EmbedCab="yes" />
+
+    <!-- Allow upgrades and prevent downgrades -->
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <!-- Check if .Net Framework 4.5.2 version is installed or not. If not show message and exit-->
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_452_OR_LATER_INSTALLED" />
+    <Condition Message="This application requires .NET Framework 4.5.2 Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_452_OR_LATER_INSTALLED]]>
+    </Condition>
+
+    <!--Main Feature for this Setup which can be found in Fragment Tag with ComponentGroupRef Id-->
+    <Feature Id="ProductFeature" Title="$(var.Name)" Level="1">
+      <!--Main application executable component-->
+      <ComponentGroupRef Id="ProductComponents" />
+      <!--Main application shortcut for Program Menu-->
+      <ComponentRef Id="ApplicationShortcut" />
+      <!--Desktop shortcut-->
+      <ComponentGroupRef Id="ComponentGroupDesktopShortcut" />
+    </Feature>
+
+    <!-- Add CheckBox UI to your installer for running application on exit-->
+    <UI>
+      <!--<UIRef Id="WixUI_Minimal" />-->
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI>
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch $(var.Name)" />
+
+    <!--Include the custom action for running application on exit-->
+    <Property Id="WixShellExecTarget" Value="[#ControlMedicoWinForms.exe]" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+
+    <!--Custom UI for installer-->
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_InstallDir" />
+    <!--EndUser License aggrement-->
+    <WixVariable Id="WixUILicenseRtf" Overridable="yes" Value="Resources\eula.rtf" />
+    <!--Top Banner UI Logo-->
+    <WixVariable Id="WixUIBannerBmp" Overridable="yes" Value="Resources\TopBanner.png" />
+    <!--Verticle Banner UI Logo-->
+    <WixVariable Id="WixUIDialogBmp" Overridable="yes" Value="Resources\BackgroundLogo.png" />
+  </Product>
+
+  <!--Fragment with details of installation directory-->
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <!-- Create a folder inside program files with Company Name-->
+        <Directory Id="ROOTDIRECTORY" Name="$(var.Manufacturer)">
+          <!-- Create a folder inside Company Name folder with Product Name-->
+          <Directory Id="INSTALLFOLDER" Name="$(var.Name)">
+            <Directory Id="DesktopFolder" Name="DesktopFolder" />
+          </Directory>
+        </Directory>
+      </Directory>
+      <!--Create application folder in Program Menu-->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="$(var.Name)" />
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <!--Main Feature Fragment with Sample application executable-->
+  <Fragment>
+
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+
+      <Component Id="MainEXE">
+        <!-- TODO: Insert files, registry keys, and other resources here. -->
+        <File Source="$(var.ControlMedicoWinForms.TargetPath)"></File>
+      </Component>
+      <Component Id="AxInterop.AcroPDFLib" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\AxInterop.AcroPDFLib.dll" Name="AxInterop.AcroPDFLib.dll" />
+      </Component>
+      <Component Id="ComponentFactory.Krypton.Design" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ComponentFactory.Krypton.Design.dll" Name="ComponentFactory.Krypton.Design.dll" />
+      </Component>
+      <Component Id="ComponentFactory.Krypton.Design.pdb" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ComponentFactory.Krypton.Design.pdb" Name="ComponentFactory.Krypton.Design.pdb" />
+      </Component>
+      <Component Id="ComponentFactory.Krypton.Docking" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ComponentFactory.Krypton.Docking.dll" Name="ComponentFactory.Krypton.Docking.dll" />
+      </Component>
+      <Component Id="ComponentFactory.Krypton.Docking.pdb" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ComponentFactory.Krypton.Docking.pdb" Name="ComponentFactory.Krypton.Docking.pdb" />
+      </Component>
+      <Component Id="ComponentFactory.Krypton.Navigator" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ComponentFactory.Krypton.Navigator.dll" Name="ComponentFactory.Krypton.Navigator.dll" />
+      </Component>
+      <Component Id="ComponentFactory.Krypton.Ribbon" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ComponentFactory.Krypton.Ribbon.dll" Name="ComponentFactory.Krypton.Ribbon.dll" />
+      </Component>
+      <Component Id="ComponentFactory.Krypton.Ribbon.pdb" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ComponentFactory.Krypton.Ribbon.pdb" Name="ComponentFactory.Krypton.Ribbon.pdb" />
+      </Component>
+      <Component Id="ComponentFactory.Krypton.Toolkit" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ComponentFactory.Krypton.Toolkit.dll" Name="ComponentFactory.Krypton.Toolkit.dll" />
+      </Component>
+      <Component Id="ComponentFactory.Krypton.Toolkit.pdb" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ComponentFactory.Krypton.Toolkit.pdb" Name="ComponentFactory.Krypton.Toolkit.pdb" />
+      </Component>
+      <Component Id="ComponentFactory.Krypton.Workspace" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ComponentFactory.Krypton.Workspace.dll" Name="ComponentFactory.Krypton.Workspace.dll" />
+      </Component>
+      <Component Id="ComponentFactory.Krypton.Workspace.pdb" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ComponentFactory.Krypton.Workspace.pdb" Name="ComponentFactory.Krypton.Workspace.pdb" />
+      </Component>
+      <Component Id="Interop.AcroPDFLib" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\Interop.AcroPDFLib.dll" Name="Interop.AcroPDFLib.dll" />
+      </Component>
+      <Component Id="itextsharp" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\itextsharp.dll" Name="itextsharp.dll" />
+      </Component>
+      <Component Id="itextsharp.xml" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\itextsharp.xml" Name="itextsharp.xml" />
+      </Component>
+      <Component Id="Newtonsoft.Json" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" />
+      </Component>
+      <Component Id="Newtonsoft.Json.xml" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\Newtonsoft.Json.xml" Name="Newtonsoft.Json.xml" />
+      </Component>
+      <Component Id="Newtonsoft.Json.pdb" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\Newtonsoft.Json.pdb" Name="Newtonsoft.Json.pdb" />
+      </Component>
+      <Component Id="System.Net.Http" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\System.Net.Http.dll" Name="System.Net.Http.dll" />
+      </Component>
+      <Component Id="System.Net.Http.Extensions" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\System.Net.Http.Extensions.dll" Name="System.Net.Http.Extensions.dll" />
+      </Component>
+      <Component Id="System.Net.Http.Formatting" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\System.Net.Http.Formatting.dll" Name="System.Net.Http.Formatting.dll" />
+      </Component>
+      <Component Id="System.Net.Http.Primitives" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\System.Net.Http.Primitives.dll" Name="System.Net.Http.Primitives.dll" />
+      </Component>
+      <Component Id="System.Security.Cryptography.Algorithms" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\System.Security.Cryptography.Algorithms.dll" Name="System.Security.Cryptography.Algorithms.dll" />
+      </Component>
+      <Component Id="System.Security.Cryptography.Encoding" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\System.Security.Cryptography.Encoding.dll" Name="System.Security.Cryptography.Encoding.dll" />
+      </Component>
+      <Component Id="System.Security.Cryptography.Primitives" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\System.Security.Cryptography.Primitives.dll" Name="System.Security.Cryptography.Primitives.dll" />
+      </Component>
+      <Component Id="System.Security.Cryptography.X509Certificates" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\System.Security.Cryptography.X509Certificates.dll" Name="System.Security.Cryptography.X509Certificates.dll" />
+      </Component>
+      <Component Id="System.Windows.Forms.Calendar" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\System.Windows.Forms.Calendar.dll" Name="System.Windows.Forms.Calendar.dll" />
+      </Component>
+      <Component Id="System.Windows.Forms.Calendar.pdb" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\System.Windows.Forms.Calendar.pdb" Name="System.Windows.Forms.Calendar.pdb" />
+      </Component>
+      <Component Id="ControlMedicoWinForms.exe.config" Guid="*">
+        <File Id="ControlMedicoWinForms.exe.config" Source="..\ControlMedicoWinforms\bin\Release\ControlMedicoWinForms.exe.config" KeyPath="yes" Name="ControlMedicoWinForms.exe.config"/>
+      </Component>
+      <Component Id="ControlMedicoWinForms.pdb" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\ControlMedicoWinForms.pdb" Name="ControlMedicoWinForms.pdb" />
+      </Component>
+      <Component Id="Control.Draggable" Guid="*">
+        <File Source="..\ControlMedicoWinforms\bin\Release\Control.Draggable.dll" Name="Control.Draggable.dll" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <!--Create application shortcut in Program Menu-->
+      <Component Id="ApplicationShortcut" Guid="*">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="$(var.Name)" Description="$(var.Description)" Icon="Logo.ico" Target="[#ControlMedicoWinForms.exe]" WorkingDirectory="INSTALLFOLDER" />
+        <!--Remove application shortcut from Program Menu on uninstall-->
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
+        <!--Create application registry entry-->
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\$(var.Manufacturer)\$(var.Name)" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+    <!--Desktop Shortcut-->
+    <ComponentGroup Id="ComponentGroupDesktopShortcut">
+      <Component Id="ComponentDesktopShortcut" Guid="*" Directory="DesktopFolder" >
+        <Shortcut Id="AppDesktopShortcut"
+                  Name="$(var.Name)"
+                  Description="$(var.Description)"
+                  Directory="DesktopFolder"
+                  Target="[#ControlMedicoWinForms.exe]"
+                  WorkingDirectory="INSTALLFOLDER"/>
+        <!--Remove desktop shortcut on uninstall-->
+        <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.Name)" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

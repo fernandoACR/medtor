@@ -1,0 +1,829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{215A7945-668A-408E-8263-B63CBC8F044D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ControlMedicoWinForms</RootNamespace>
+    <AssemblyName>ControlMedicoWinForms</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Design">
+      <HintPath>E:\Artor\ProyectoControlMedico\Krypton-master\Bin\ComponentFactory.Krypton.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Docking">
+      <HintPath>E:\Artor\ProyectoControlMedico\Krypton-master\Bin\ComponentFactory.Krypton.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Navigator">
+      <HintPath>E:\Artor\ProyectoControlMedico\Krypton-master\Bin\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Ribbon">
+      <HintPath>E:\Artor\ProyectoControlMedico\Krypton-master\Bin\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit">
+      <HintPath>E:\Artor\ProyectoControlMedico\Krypton-master\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Control.Draggable, Version=1.0.5049.269, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Control.Draggable.1.0.5049.269\lib\net35-Client\Control.Draggable.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.Calendar">
+      <HintPath>..\System.Windows.Forms.Calendar\bin\Release\System.Windows.Forms.Calendar.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Archivo\AgregarArchivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Archivo\AgregarArchivo.Designer.cs">
+      <DependentUpon>AgregarArchivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\CatalogoServices.cs" />
+    <Compile Include="Catalogo\Especialidad\AgregarEspecialidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Especialidad\AgregarEspecialidad.Designer.cs">
+      <DependentUpon>AgregarEspecialidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Especialidad\ControlEspecialidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Especialidad\ControlEspecialidades.Designer.cs">
+      <DependentUpon>ControlEspecialidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Especialidad\EditarEspecialidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Especialidad\EditarEspecialidad.Designer.cs">
+      <DependentUpon>EditarEspecialidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Especimen\AgregarEspecimen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Especimen\AgregarEspecimen.Designer.cs">
+      <DependentUpon>AgregarEspecimen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Especimen\ControlEspecimen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Especimen\ControlEspecimen.Designer.cs">
+      <DependentUpon>ControlEspecimen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Especimen\EditarEspecimen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Especimen\EditarEspecimen.Designer.cs">
+      <DependentUpon>EditarEspecimen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Medicamento\EditarMedicamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Medicamento\EditarMedicamento.Designer.cs">
+      <DependentUpon>EditarMedicamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Medicamento\AgregarMedicamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Medicamento\AgregarMedicamento.Designer.cs">
+      <DependentUpon>AgregarMedicamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Medicamento\ControlMedicamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Medicamento\ControlMedicamentos.Designer.cs">
+      <DependentUpon>ControlMedicamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Patologia\AgregarPatologia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Patologia\AgregarPatologia.Designer.cs">
+      <DependentUpon>AgregarPatologia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Patologia\ControlPatologias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Patologia\ControlPatologias.Designer.cs">
+      <DependentUpon>ControlPatologias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo\Patologia\EditarPatologia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogo\Patologia\EditarPatologia.Designer.cs">
+      <DependentUpon>EditarPatologia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cita\AgregarCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cita\AgregarCita.Designer.cs">
+      <DependentUpon>AgregarCita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cita\CitaServices.cs" />
+    <Compile Include="Cita\ControlCitas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cita\ControlCitas.Designer.cs">
+      <DependentUpon>ControlCitas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cita\EditarCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cita\EditarCita.Designer.cs">
+      <DependentUpon>EditarCita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cita\EditarDatosCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cita\EditarDatosCita.Designer.cs">
+      <DependentUpon>EditarDatosCita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cita\IngresarDatosCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cita\IngresarDatosCita.Designer.cs">
+      <DependentUpon>IngresarDatosCita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfiguracionMedico\ConfiguracionMedicoServices.cs" />
+    <Compile Include="Models\Archivo\ArchivoDiagnosticoModel.cs" />
+    <Compile Include="Models\Archivo\ArchivoOrdenModel.cs" />
+    <Compile Include="Models\Archivo\ArchivoMedicoModel.cs" />
+    <Compile Include="Models\Archivo\ArchivoPacienteModel.cs" />
+    <Compile Include="Models\Catalogo\LugarNacimientoModel.cs" />
+    <Compile Include="Models\Catalogo\MedicamentoModel.cs" />
+    <Compile Include="Models\Catalogo\MedioNotificacionModel.cs" />
+    <Compile Include="Models\Catalogo\OcupacionModel.cs" />
+    <Compile Include="Models\Catalogo\TipoArchivoModel.cs" />
+    <Compile Include="Models\Catalogo\TipoNotificacionModel.cs" />
+    <Compile Include="Models\Catalogo\TipoReporteModel.cs" />
+    <Compile Include="Models\ConfiguracionMedicoModel.cs" />
+    <Compile Include="Models\ConfiguracionReporteModel.cs" />
+    <Compile Include="Models\ItemInfo.cs" />
+    <Compile Include="Cliente\AgregarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\AgregarCliente.Designer.cs">
+      <DependentUpon>AgregarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\ClienteServices.cs" />
+    <Compile Include="Cliente\ControlClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\ControlClientes.Designer.cs">
+      <DependentUpon>ControlClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostico\AgregarDiagnostico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagnostico\AgregarDiagnostico.Designer.cs">
+      <DependentUpon>AgregarDiagnostico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostico\ControlDiagnosticos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagnostico\ControlDiagnosticos.Designer.cs">
+      <DependentUpon>ControlDiagnosticos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostico\DiagnosticoServices.cs" />
+    <Compile Include="Diagnostico\EditarDiagnostico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagnostico\EditarDiagnostico.Designer.cs">
+      <DependentUpon>EditarDiagnostico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medico\AgregarMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medico\AgregarMedico.Designer.cs">
+      <DependentUpon>AgregarMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medico\ControlMedicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medico\ControlMedicos.Designer.cs">
+      <DependentUpon>ControlMedicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medico\EditarMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medico\EditarMedico.Designer.cs">
+      <DependentUpon>EditarMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medico\MedicoServices.cs" />
+    <Compile Include="Models\Catalogo\EscolaridadModel.cs" />
+    <Compile Include="Models\Catalogo\EspecialidadModel.cs" />
+    <Compile Include="Models\Catalogo\EstatusCitaModel.cs" />
+    <Compile Include="Models\Catalogo\EstatusOrdenModel.cs" />
+    <Compile Include="Models\Catalogo\EstatusSuscripcionModel.cs" />
+    <Compile Include="Models\Catalogo\PatologiaModel.cs" />
+    <Compile Include="Models\Catalogo\TipoCitaModel.cs" />
+    <Compile Include="Models\CitaModel.cs" />
+    <Compile Include="Models\ClienteModel.cs" />
+    <Compile Include="Models\ComunModel.cs" />
+    <Compile Include="Models\Catalogo\EspecimenModel.cs" />
+    <Compile Include="Models\DiagnosticoModel.cs" />
+    <Compile Include="Models\HistoricoOrdenModel.cs" />
+    <Compile Include="Models\Login\EditarPasswordModel.cs" />
+    <Compile Include="Models\Login\LoginModel.cs" />
+    <Compile Include="Models\Login\LoginResponse.cs" />
+    <Compile Include="Models\MedicoModel.cs" />
+    <Compile Include="Models\NotificacionModel.cs" />
+    <Compile Include="Models\OrdenModel.cs" />
+    <Compile Include="Models\PacienteModel.cs" />
+    <Compile Include="Models\RecetaMedicamento.cs" />
+    <Compile Include="Models\RecetaModel.cs" />
+    <Compile Include="Models\RegistroUsuarioModel..cs" />
+    <Compile Include="Models\ResponseModel.cs" />
+    <Compile Include="Models\SuscripcionModel.cs" />
+    <Compile Include="Models\TransaccionModel.cs" />
+    <Compile Include="Notificacion\NotificacionServices.cs" />
+    <Compile Include="Orden\AgregarOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orden\AgregarOrden.Designer.cs">
+      <DependentUpon>AgregarOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orden\ControlOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orden\ControlOrdenes.Designer.cs">
+      <DependentUpon>ControlOrdenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orden\EditarOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orden\EditarOrden.Designer.cs">
+      <DependentUpon>EditarOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orden\OrdenServices.cs" />
+    <Compile Include="Paciente\AgregarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paciente\AgregarPaciente.Designer.cs">
+      <DependentUpon>AgregarPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paciente\ControlPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paciente\ControlPacientes.Designer.cs">
+      <DependentUpon>ControlPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paciente\EditarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paciente\EditarPaciente.Designer.cs">
+      <DependentUpon>EditarPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paciente\PacienteServices.cs" />
+    <Compile Include="Paciente\ReportesPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paciente\ReportesPaciente.Designer.cs">
+      <DependentUpon>ReportesPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressBar.Designer.cs">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receta\AgregarReceta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receta\AgregarReceta.Designer.cs">
+      <DependentUpon>AgregarReceta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receta\ControlRecetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receta\ControlRecetas.Designer.cs">
+      <DependentUpon>ControlRecetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Receta\RecetaServices.cs" />
+    <Compile Include="Reportes\SeleccionarReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\SeleccionarReporte.Designer.cs">
+      <DependentUpon>SeleccionarReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteServices.cs" />
+    <Compile Include="Reportes\WebViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\WebViewer.Designer.cs">
+      <DependentUpon>WebViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suscripcion\AgregarSuscripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suscripcion\AgregarSuscripcion.Designer.cs">
+      <DependentUpon>AgregarSuscripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suscripcion\SuscripcionServices.cs" />
+    <Compile Include="Usuario\EditarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\EditarPassword.Designer.cs">
+      <DependentUpon>EditarPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\MiCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\MiCuenta.Designer.cs">
+      <DependentUpon>MiCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\UsuarioServices.cs" />
+    <Compile Include="Utilidades\ControlLenguaje.cs" />
+    <Compile Include="Utilidades\Idioma\EnglishStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnglishStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilidades\Idioma\EspanolStrings.Designer.cs" />
+    <Compile Include="Utilidades\Utility.cs" />
+    <Compile Include="Utilidades\ValidationMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationMessages.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Archivo\AgregarArchivo.resx">
+      <DependentUpon>AgregarArchivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Especialidad\AgregarEspecialidad.resx">
+      <DependentUpon>AgregarEspecialidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Especialidad\ControlEspecialidades.resx">
+      <DependentUpon>ControlEspecialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Especialidad\EditarEspecialidad.resx">
+      <DependentUpon>EditarEspecialidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Especimen\AgregarEspecimen.resx">
+      <DependentUpon>AgregarEspecimen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Especimen\ControlEspecimen.resx">
+      <DependentUpon>ControlEspecimen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Especimen\EditarEspecimen.resx">
+      <DependentUpon>EditarEspecimen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Medicamento\EditarMedicamento.resx">
+      <DependentUpon>EditarMedicamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Medicamento\AgregarMedicamento.resx">
+      <DependentUpon>AgregarMedicamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Medicamento\ControlMedicamentos.resx">
+      <DependentUpon>ControlMedicamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Patologia\AgregarPatologia.resx">
+      <DependentUpon>AgregarPatologia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Patologia\ControlPatologias.resx">
+      <DependentUpon>ControlPatologias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogo\Patologia\EditarPatologia.resx">
+      <DependentUpon>EditarPatologia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cita\AgregarCita.resx">
+      <DependentUpon>AgregarCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cita\ControlCitas.resx">
+      <DependentUpon>ControlCitas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cita\EditarCita.resx">
+      <DependentUpon>EditarCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cita\EditarDatosCita.resx">
+      <DependentUpon>EditarDatosCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cita\IngresarDatosCita.resx">
+      <DependentUpon>IngresarDatosCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\AgregarCliente.resx">
+      <DependentUpon>AgregarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\ControlClientes.resx">
+      <DependentUpon>ControlClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagnostico\AgregarDiagnostico.resx">
+      <DependentUpon>AgregarDiagnostico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagnostico\ControlDiagnosticos.resx">
+      <DependentUpon>ControlDiagnosticos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagnostico\EditarDiagnostico.resx">
+      <DependentUpon>EditarDiagnostico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medico\AgregarMedico.resx">
+      <DependentUpon>AgregarMedico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medico\ControlMedicos.resx">
+      <DependentUpon>ControlMedicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medico\EditarMedico.resx">
+      <DependentUpon>EditarMedico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orden\AgregarOrden.resx">
+      <DependentUpon>AgregarOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orden\ControlOrdenes.resx">
+      <DependentUpon>ControlOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orden\EditarOrden.resx">
+      <DependentUpon>EditarOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paciente\AgregarPaciente.resx">
+      <DependentUpon>AgregarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paciente\ControlPacientes.resx">
+      <DependentUpon>ControlPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paciente\EditarPaciente.resx">
+      <DependentUpon>EditarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paciente\ReportesPaciente.resx">
+      <DependentUpon>ReportesPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressBar.resx">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Receta\AgregarReceta.resx">
+      <DependentUpon>AgregarReceta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Receta\ControlRecetas.resx">
+      <DependentUpon>ControlRecetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\SeleccionarReporte.resx">
+      <DependentUpon>SeleccionarReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\WebViewer.resx">
+      <DependentUpon>WebViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suscripcion\AgregarSuscripcion.resx">
+      <DependentUpon>AgregarSuscripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\EditarPassword.resx">
+      <DependentUpon>EditarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\MiCuenta.resx">
+      <DependentUpon>MiCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilidades\Idioma\EnglishStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EnglishStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilidades\Idioma\EspanolStrings.resx" />
+    <EmbeddedResource Include="Utilidades\ValidationMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar_icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Catalogo\Escolaridad\" />
+    <Folder Include="Catalogo\Ocupacion\" />
+    <Folder Include="Reportes\Paciente\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\healt_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\healt_icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_BT_printer_905556.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_BT_printer_905556 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\active_icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_status_46254.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paciente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reporte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reporte1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\citas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_15_hospital_2774746.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_doctor_63121.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_16_hospital_2774747.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_medical-healthcare-hospital-33_4082080.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_users_61816.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_slice46_2835266.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_Artboard_13_3874672.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_briefcase_44715.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_muslim_islam_emoji_face-38_2412964.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_150_Sensor_body_Data_Human_Science_technology_smart_4179205.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_medical_icon_2_1290989.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_flat-style-circle-add_1312548.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_minus_1645995.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_user_1287507.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_lock_safe_password_2992204.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_drive_2308109.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_logout_18123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_logout_54231.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_status-offline_46253.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuPaciente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuMedico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuOrden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuCliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuCita.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuDiagnostico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuReceta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuEspecialidad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuEspecimen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuPatologia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuMedicamento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuMiCuenta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuSalir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuAgregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuEditar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuCancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnGuardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnAceptar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnLimpiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnIniciarSesion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnIniciarSesion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bntSalir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SinEjecutar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ejecutado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnReportes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnRecargar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuCitasAgendadas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnRecargar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControlMedicoConnector\ControlMedicoConnector.csproj">
+      <Project>{da41df5b-30cd-4e14-a0e0-ea641c53f88a}</Project>
+      <Name>ControlMedicoConnector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextControl\TextControl\TextControl.csproj">
+      <Project>{da00b3d9-7ce5-4634-a7d2-9a6d3f92c382}</Project>
+      <Name>TextControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnEditarReporte.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

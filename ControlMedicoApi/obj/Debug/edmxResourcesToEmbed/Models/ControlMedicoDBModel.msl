@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ControlMedicoDBModelStoreContainer" CdmEntityContainer="ControlMedicoDBEntities">
+    <EntitySetMapping Name="Especialidads">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Especialidad">
+        <MappingFragment StoreEntitySet="Especialidad">
+          <ScalarProperty Name="IdSuscripcion" ColumnName="IdSuscripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdEspecialidad" ColumnName="IdEspecialidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstatusSuscripcions">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.EstatusSuscripcion">
+        <MappingFragment StoreEntitySet="EstatusSuscripcion">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdEstatusSuscriptor" ColumnName="IdEstatusSuscriptor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suscripcions">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Suscripcion">
+        <MappingFragment StoreEntitySet="Suscripcion">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="MaxUsuarios" ColumnName="MaxUsuarios" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="IdSuscriptor" ColumnName="IdSuscriptor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstatusCitas">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.EstatusCita">
+        <MappingFragment StoreEntitySet="EstatusCita">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdEstatusCita" ColumnName="IdEstatusCita" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Escolaridads">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Escolaridad">
+        <MappingFragment StoreEntitySet="Escolaridad">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="IdEscolaridad" ColumnName="IdEscolaridad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstatusTransaccions">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.EstatusTransaccion">
+        <MappingFragment StoreEntitySet="EstatusTransaccion">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="IdEstatusTransaccion" ColumnName="IdEstatusTransaccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OperacionContables">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.OperacionContable">
+        <MappingFragment StoreEntitySet="OperacionContable">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="IdOperacionContable" ColumnName="IdOperacionContable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoTransaccions">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.TipoTransaccion">
+        <MappingFragment StoreEntitySet="TipoTransaccion">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="IdTipoTransaccion" ColumnName="IdTipoTransaccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicamentoes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Medicamento">
+        <MappingFragment StoreEntitySet="Medicamento">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="IdMedicamento" ColumnName="IdMedicamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoCitas">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.TipoCita">
+        <MappingFragment StoreEntitySet="TipoCita">
+          <ScalarProperty Name="IdSuscripcion" ColumnName="IdSuscripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="IdTipoCita" ColumnName="IdTipoCita" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Institucions">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Institucion">
+        <MappingFragment StoreEntitySet="Institucion">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="IdSuscripcion" ColumnName="IdSuscripcion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdInstitucion" ColumnName="IdInstitucion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicos">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Medico">
+        <MappingFragment StoreEntitySet="Medico">
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="CedulaProfesional" ColumnName="CedulaProfesional" />
+          <ScalarProperty Name="IdInstitucion" ColumnName="IdInstitucion" />
+          <ScalarProperty Name="IdSuscripcion" ColumnName="IdSuscripcion" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="IdEspecialidad" ColumnName="IdEspecialidad" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ocupacions">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Ocupacion">
+        <MappingFragment StoreEntitySet="Ocupacion">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="IdOcupacion" ColumnName="IdOcupacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecetaMedicamentoes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.RecetaMedicamento">
+        <MappingFragment StoreEntitySet="RecetaMedicamento">
+          <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="IdMedicamento" ColumnName="IdMedicamento" />
+          <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+          <ScalarProperty Name="IdRecetaMedicamento" ColumnName="IdRecetaMedicamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstatusOrdens">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.EstatusOrden">
+        <MappingFragment StoreEntitySet="EstatusOrden">
+          <ScalarProperty Name="IdSuscripcion" ColumnName="IdSuscripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="IdEstatusOrden" ColumnName="IdEstatusOrden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PacienteMedicoes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.PacienteMedico">
+        <MappingFragment StoreEntitySet="PacienteMedico">
+          <ScalarProperty Name="IdSuscripcion" ColumnName="IdSuscripcion" />
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="IdPacienteMedico" ColumnName="IdPacienteMedico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transaccions">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Transaccion">
+        <MappingFragment StoreEntitySet="Transaccion">
+          <ScalarProperty Name="MontoPagado" ColumnName="MontoPagado" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="NumReferencia" ColumnName="NumReferencia" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="IdGenerado" ColumnName="IdGenerado" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IdOperacionContable" ColumnName="IdOperacionContable" />
+          <ScalarProperty Name="IdTipoTransaccion" ColumnName="IdTipoTransaccion" />
+          <ScalarProperty Name="IdTransaccion" ColumnName="IdTransaccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoricoOrdens">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.HistoricoOrden">
+        <MappingFragment StoreEntitySet="HistoricoOrden">
+          <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+          <ScalarProperty Name="FechaEstatus" ColumnName="FechaEstatus" />
+          <ScalarProperty Name="ClaveOrden" ColumnName="ClaveOrden" />
+          <ScalarProperty Name="IdEstatusOrden" ColumnName="IdEstatusOrden" />
+          <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+          <ScalarProperty Name="IdHistoricoOrden" ColumnName="IdHistoricoOrden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="IdSuscripcion" ColumnName="IdSuscripcion" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ordens">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Orden">
+        <MappingFragment StoreEntitySet="Orden">
+          <ScalarProperty Name="MovilPersonaRecepcion" ColumnName="MovilPersonaRecepcion" />
+          <ScalarProperty Name="CorreoPersonaRecepcion" ColumnName="CorreoPersonaRecepcion" />
+          <ScalarProperty Name="FechaEntregaOrigen" ColumnName="FechaEntregaOrigen" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="PersonaRecepcion" ColumnName="PersonaRecepcion" />
+          <ScalarProperty Name="IdMedicoRecepcion" ColumnName="IdMedicoRecepcion" />
+          <ScalarProperty Name="IdSuscripcion" ColumnName="IdSuscripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="PersonaEntrega" ColumnName="PersonaEntrega" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="IdDiagnostico" ColumnName="IdDiagnostico" />
+          <ScalarProperty Name="FechaEntregaReceptor" ColumnName="FechaEntregaReceptor" />
+          <ScalarProperty Name="FechaRecepcion" ColumnName="FechaRecepcion" />
+          <ScalarProperty Name="IdEspecimen" ColumnName="IdEspecimen" />
+          <ScalarProperty Name="IdMedicoEntrega" ColumnName="IdMedicoEntrega" />
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExistenciaMedicamentoes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.ExistenciaMedicamento">
+        <MappingFragment StoreEntitySet="ExistenciaMedicamento">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="IdMedicamento" ColumnName="IdMedicamento" />
+          <ScalarProperty Name="IdExistenciaMedicamento" ColumnName="IdExistenciaMedicamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InventarioMedicamentoes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.InventarioMedicamento">
+        <MappingFragment StoreEntitySet="InventarioMedicamento">
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="IdMedicamento" ColumnName="IdMedicamento" />
+          <ScalarProperty Name="IdInventarioMedicamento" ColumnName="IdInventarioMedicamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recetas">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Receta">
+        <MappingFragment StoreEntitySet="Receta">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="IdDiagnostico" ColumnName="IdDiagnostico" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="IdReceta" ColumnName="IdReceta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LugarNacimientoes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.LugarNacimiento">
+        <MappingFragment StoreEntitySet="LugarNacimiento">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="IdLugarNacimiento" ColumnName="IdLugarNacimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pacientes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Paciente">
+        <MappingFragment StoreEntitySet="Paciente">
+          <ScalarProperty Name="TelefonoMovil" ColumnName="TelefonoMovil" />
+          <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
+          <ScalarProperty Name="PrimerApellido" ColumnName="PrimerApellido" />
+          <ScalarProperty Name="SegundoNombre" ColumnName="SegundoNombre" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="SeguroVida" ColumnName="SeguroVida" />
+          <ScalarProperty Name="IdOcupacion" ColumnName="IdOcupacion" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="MedicamentoActual" ColumnName="MedicamentoActual" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="TelefonoFamiliar" ColumnName="TelefonoFamiliar" />
+          <ScalarProperty Name="NombreFamiliar" ColumnName="NombreFamiliar" />
+          <ScalarProperty Name="IdLugarNacimiento" ColumnName="IdLugarNacimiento" />
+          <ScalarProperty Name="Patologia" ColumnName="Patologia" />
+          <ScalarProperty Name="Escolaridad" ColumnName="Escolaridad" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="IdSuscripcion" ColumnName="IdSuscripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="PrimerNombre" ColumnName="PrimerNombre" />
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diagnosticoes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Diagnostico">
+        <MappingFragment StoreEntitySet="Diagnostico">
+          <ScalarProperty Name="IdCita" ColumnName="IdCita" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Alergias" ColumnName="Alergias" />
+          <ScalarProperty Name="Altura" ColumnName="Altura" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="IdDiagnostico" ColumnName="IdDiagnostico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedioNotificacions">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.MedioNotificacion">
+        <MappingFragment StoreEntitySet="MedioNotificacion">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="IdMedioNotificacion" ColumnName="IdMedioNotificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoNotificacions">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.TipoNotificacion">
+        <MappingFragment StoreEntitySet="TipoNotificacion">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Template" ColumnName="Template" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="IdTipoNotificacion" ColumnName="IdTipoNotificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configuracions">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Configuracion">
+        <MappingFragment StoreEntitySet="Configuracion">
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="TipoConfiguracion" ColumnName="TipoConfiguracion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdConfiguracion" ColumnName="IdConfiguracion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfiguracionMedicoes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.ConfiguracionMedico">
+        <MappingFragment StoreEntitySet="ConfiguracionMedico">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="TipoConfiguracion" ColumnName="TipoConfiguracion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="IdConfiguracionMedico" ColumnName="IdConfiguracionMedico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notificacions">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Notificacion">
+        <MappingFragment StoreEntitySet="Notificacion">
+          <ScalarProperty Name="IdCita" ColumnName="IdCita" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="HoraNotificacion" ColumnName="HoraNotificacion" />
+          <ScalarProperty Name="FechaNotificacion" ColumnName="FechaNotificacion" />
+          <ScalarProperty Name="IdMedioNotificacion" ColumnName="IdMedioNotificacion" />
+          <ScalarProperty Name="Recursivo" ColumnName="Recursivo" />
+          <ScalarProperty Name="IdTipoNotificacion" ColumnName="IdTipoNotificacion" />
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="IdNotificacion" ColumnName="IdNotificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Especimen">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Especiman">
+        <MappingFragment StoreEntitySet="Especimen">
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdEspecimen" ColumnName="IdEspecimen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patologias">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Patologia">
+        <MappingFragment StoreEntitySet="Patologia">
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="IdPatologia" ColumnName="IdPatologia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Citas">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.Cita">
+        <MappingFragment StoreEntitySet="Cita">
+          <ScalarProperty Name="FechaCitaHasta" ColumnName="FechaCitaHasta" />
+          <ScalarProperty Name="IdTipoCita" ColumnName="IdTipoCita" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="FechaCitaDesde" ColumnName="FechaCitaDesde" />
+          <ScalarProperty Name="IdPaciente" ColumnName="IdPaciente" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="IdCita" ColumnName="IdCita" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfiguracionReportes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.ConfiguracionReporte">
+        <MappingFragment StoreEntitySet="ConfiguracionReporte">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="IdMedico" ColumnName="IdMedico" />
+          <ScalarProperty Name="Html" ColumnName="Html" />
+          <ScalarProperty Name="IdTipoReporte" ColumnName="IdTipoReporte" />
+          <ScalarProperty Name="IdConfiguracionReporte" ColumnName="IdConfiguracionReporte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoReportes">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.TipoReporte">
+        <MappingFragment StoreEntitySet="TipoReporte">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipoReporte" ColumnName="IdTipoReporte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoReporteVariables">
+      <EntityTypeMapping TypeName="ControlMedicoDBModel.TipoReporteVariable">
+        <MappingFragment StoreEntitySet="TipoReporteVariable">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Html" ColumnName="Html" />
+          <ScalarProperty Name="Propiedad" ColumnName="Propiedad" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Entidad" ColumnName="Entidad" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipoReporte" ColumnName="IdTipoReporte" />
+          <ScalarProperty Name="IdTipoReporteVariable" ColumnName="IdTipoReporteVariable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

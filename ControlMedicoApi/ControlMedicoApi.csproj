@@ -1,0 +1,848 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9ADC1D4-78D6-47EC-88F7-B42D83A82E8F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ControlMedicoApi</RootNamespace>
+    <AssemblyName>ControlMedicoApi</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=2.1.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.2.1.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.2.0\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.7.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.7\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlRenderer, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.Core.1.5.1-beta1\lib\net45\HtmlRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlRenderer.PdfSharp, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.PdfSharp.1.5.1-beta1\lib\net45\HtmlRenderer.PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.4.0.0\lib\net451\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.4.0.0\lib\net451\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Testing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Testing.4.0.0\lib\net451\Microsoft.Owin.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.4000.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.4000-beta3b\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.4000.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.4000-beta3b\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="Pechkin, Version=0.5.8.1, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\Pechkin.0.5.8.1\lib\net40\Pechkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Pechkin.Synchronized, Version=0.5.8.1, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\Pechkin.Synchronized.0.5.8.1\lib\net40\Pechkin.Synchronized.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="TuesPechkin, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TuesPechkin.2.1.1\lib\net20\TuesPechkin.dll</HintPath>
+    </Reference>
+    <Reference Include="TuesPechkin.Wkhtmltox.Win32, Version=0.12.2.1, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\TuesPechkin.Wkhtmltox.Win32.0.12.2.1\lib\net20\TuesPechkin.Wkhtmltox.Win32.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.2.0\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.0.3.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.2.0\lib\net45\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.2.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.2.0\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.2.0\lib\net45\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.2.0\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.2.0\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.2.0\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.WebApi, Version=5.3.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.WebAPI.5.3.0\lib\net45\Unity.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Business\Catalogo\Escolaridad\EscolaridadBusiness.cs" />
+    <Compile Include="Business\Catalogo\Escolaridad\IEscolaridadBusiness.cs" />
+    <Compile Include="Business\Catalogo\Especialidad\EspecialidadBusiness.cs" />
+    <Compile Include="Business\Catalogo\Especimen\EspecimenBusiness.cs" />
+    <Compile Include="Business\Catalogo\EstatusCita\EstatusCitaBusiness.cs" />
+    <Compile Include="Business\Catalogo\EstatusSuscripcion\EstatusSuscripcionBusiness.cs" />
+    <Compile Include="Business\Catalogo\Especialidad\IEspecialidadBusiness.cs" />
+    <Compile Include="Business\Catalogo\Especimen\IEspecimenBusiness.cs" />
+    <Compile Include="Business\Catalogo\EstatusCita\IEstatusCitaBusiness.cs" />
+    <Compile Include="Business\Catalogo\EstatusSuscripcion\IEstatusSuscripcionBusiness.cs" />
+    <Compile Include="Business\Catalogo\LugarNacimiento\LugarNacimientoBusiness.cs" />
+    <Compile Include="Business\Catalogo\LugarNacimiento\ILugarNacimientoBusiness.cs" />
+    <Compile Include="Business\Catalogo\Medicamento\IMedicamentoBusiness.cs" />
+    <Compile Include="Business\Catalogo\Medicamento\MedicamentoBusiness.cs" />
+    <Compile Include="Business\Catalogo\Ocupacion\IOcupacionBusiness.cs" />
+    <Compile Include="Business\Catalogo\Ocupacion\OcupacionBusiness.cs" />
+    <Compile Include="Business\Catalogo\Patologia\IPatologiaBusiness.cs" />
+    <Compile Include="Business\Catalogo\Patologia\PatologiaBusiness.cs" />
+    <Compile Include="Business\Catalogo\TipoArchivo\ITipoArchivoBusiness.cs" />
+    <Compile Include="Business\Catalogo\TipoArchivo\TipoArchivoBusiness.cs" />
+    <Compile Include="Business\Catalogo\TipoCita\ITipoCitaBusiness.cs" />
+    <Compile Include="Business\Catalogo\TipoCita\TipoCitaBusiness.cs" />
+    <Compile Include="Business\Cita\CitaBusiness.cs" />
+    <Compile Include="Business\Cita\ICitaBusiness.cs" />
+    <Compile Include="Business\Cliente\ClienteBusiness.cs" />
+    <Compile Include="Business\Cliente\IClienteBusiness.cs" />
+    <Compile Include="Business\ConfiguracionMedico\IConfiguracionMedicoBusiness.cs" />
+    <Compile Include="Business\ConfiguracionMedico\ConfiguracionMedicoBusiness.cs" />
+    <Compile Include="Business\ConfiguracionReporte\ConfiguracionReporteBusiness.cs" />
+    <Compile Include="Business\ConfiguracionReporte\IConfiguracionReporteBusiness.cs" />
+    <Compile Include="Business\Diagnostico\DiagnosticoBusiness.cs" />
+    <Compile Include="Business\Diagnostico\IDiagnosticoBusiness.cs" />
+    <Compile Include="Business\InventarioMedicamento\IInventarioMedicamentoBusiness.cs" />
+    <Compile Include="Business\InventarioMedicamento\InventarioMedicamentoBusiness.cs" />
+    <Compile Include="Business\Medico\IMedicoBusiness.cs" />
+    <Compile Include="Business\Notificacion\INotificacionBusiness.cs" />
+    <Compile Include="Business\Notificacion\NotificacionBusiness.cs" />
+    <Compile Include="Business\Orden\IOrdenBusiness.cs" />
+    <Compile Include="Business\Orden\OrdenBusiness.cs" />
+    <Compile Include="Business\PacienteMedico\IPacienteMedicoBusiness.cs" />
+    <Compile Include="Business\PacienteMedico\PacienteMedicoBusiness.cs" />
+    <Compile Include="Business\Paciente\Expediente\ExpedienteBusiness.cs" />
+    <Compile Include="Business\Paciente\Expediente\IExpedienteBusiness.cs" />
+    <Compile Include="Business\Paciente\IPacienteBusiness.cs" />
+    <Compile Include="Business\Medico\MedicoBusiness.cs" />
+    <Compile Include="Business\Paciente\PacienteBusiness.cs" />
+    <Compile Include="Business\RecetaMedicamento\IRecetaMedicamentoBusiness.cs" />
+    <Compile Include="Business\RecetaMedicamento\RecetaMedicamentoBusiness.cs" />
+    <Compile Include="Business\Receta\IRecetaBusiness.cs" />
+    <Compile Include="Business\Receta\RecetaBusiness.cs" />
+    <Compile Include="Business\Reporte\IReporteBusiness.cs" />
+    <Compile Include="Business\Reporte\ReporteBusiness.cs" />
+    <Compile Include="Business\Suscripcion\ISuscripcionBusiness.cs" />
+    <Compile Include="Business\Suscripcion\SuscripcionBusiness.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CatalogoController.cs" />
+    <Compile Include="Controllers\CitaController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\ConfiguracionReporteController.cs" />
+    <Compile Include="Controllers\ConfiguracionMedicoController.cs" />
+    <Compile Include="Controllers\DiagnosticoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventarioController.cs" />
+    <Compile Include="Controllers\MedicoController.cs" />
+    <Compile Include="Controllers\NotificacionController.cs" />
+    <Compile Include="Controllers\OrdenController.cs" />
+    <Compile Include="Controllers\PacienteController.cs" />
+    <Compile Include="Controllers\PacienteMedicoController.cs" />
+    <Compile Include="Controllers\RecetaController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\SuscripcionController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountBindingModels.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ArchivoDiagnostico.cs">
+      <DependentUpon>ControlMedicoFileDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ArchivoMedico.cs">
+      <DependentUpon>ControlMedicoFileDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ArchivoOrden.cs">
+      <DependentUpon>ControlMedicoFileDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ArchivoPaciente.cs">
+      <DependentUpon>ControlMedicoFileDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Archivo\ArchivoDiagnosticoModel.cs" />
+    <Compile Include="Models\Archivo\ArchivoOrdenModel.cs" />
+    <Compile Include="Models\Archivo\ArchivoMedicoModel.cs" />
+    <Compile Include="Models\Archivo\ArchivoPacienteModel.cs" />
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Catalogo\LugarNacimientoModel.cs" />
+    <Compile Include="Models\Catalogo\EscolaridadModel.cs" />
+    <Compile Include="Models\Catalogo\EstatusCitaModel.cs" />
+    <Compile Include="Models\Catalogo\EstatusOrdenModel.cs" />
+    <Compile Include="Models\Catalogo\EstatusSuscripcionModel.cs" />
+    <Compile Include="Models\Catalogo\MedicamentoModel.cs" />
+    <Compile Include="Models\Catalogo\MedioNotificacionModel.cs" />
+    <Compile Include="Models\Catalogo\OcupacionModel.cs" />
+    <Compile Include="Models\Catalogo\PatologiaModel.cs" />
+    <Compile Include="Models\Catalogo\TipoArchivoModel.cs" />
+    <Compile Include="Models\Catalogo\TipoCitaModel.cs" />
+    <Compile Include="Models\Catalogo\TipoNotificacionModel.cs" />
+    <Compile Include="Models\Catalogo\TipoReporteModel.cs" />
+    <Compile Include="Models\Catalogo\TipoReporteVariableModel.cs" />
+    <Compile Include="Models\Cita.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cita\CitaModel.cs" />
+    <Compile Include="Models\Cliente.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cliente\ClienteModel.cs" />
+    <Compile Include="Models\Common\InitialConfiguration.cs" />
+    <Compile Include="Models\Common\UtlilityModel.cs" />
+    <Compile Include="Models\Configuracion.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConfiguracionMedico.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConfiguracionMedico\ConfiguracionMedicoModel.cs" />
+    <Compile Include="Models\ConfiguracionReporte.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConfiguracionReporte\ConfiguracionReporteModel.cs" />
+    <Compile Include="Models\ControlMedicoDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlMedicoDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ControlMedicoDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ControlMedicoDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlMedicoDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ControlMedicoFileDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlMedicoFileDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ControlMedicoFileDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlMedicoFileDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ControlMedicoFileDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlMedicoFileDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Diagnostico.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Diagnostico\DiagnosticoModel.cs" />
+    <Compile Include="Models\Escolaridad.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Especialidad.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Catalogo\EspecialidadModel.cs" />
+    <Compile Include="Models\Especiman.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Catalogo\EspecimenModel.cs" />
+    <Compile Include="Models\EstatusCita.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EstatusOrden.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EstatusSuscripcion.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EstatusTransaccion.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExistenciaMedicamento.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HistoricoOrden.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HistoricoOrden\HistoricoOrdenModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Institucion.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InventarioMedicamento.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InventarioMedicamento\InventarioMedicamentoModel.cs" />
+    <Compile Include="Models\LugarNacimiento.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Medicamento.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Medico.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Medico\MedicoModel.cs" />
+    <Compile Include="Models\MedioNotificacion.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Notificacion.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Notificacion\NotificacionModel.cs" />
+    <Compile Include="Models\Ocupacion.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OperacionContable.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Orden.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Orden\OrdenModel.cs" />
+    <Compile Include="Models\Paciente.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PacienteMedico.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PacienteMedico\PacienteMedicoModel.cs" />
+    <Compile Include="Models\Paciente\Expediente\ExpedienteModel.cs" />
+    <Compile Include="Models\Paciente\PacienteModel.cs" />
+    <Compile Include="Models\Patologia.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Receta.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecetaMedicamento.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecetaMedicamento\RecetaMedicamentoModel.cs" />
+    <Compile Include="Models\Receta\RecetaModel.cs" />
+    <Compile Include="Models\ResponseModel.cs" />
+    <Compile Include="Models\Suscripcion.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Suscripcion\SuscripcionModel.cs" />
+    <Compile Include="Models\TipoArchivo.cs">
+      <DependentUpon>ControlMedicoFileDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoCita.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoNotificacion.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoReporte.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoReporteVariable.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoTransaccion.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Transaccion.cs">
+      <DependentUpon>ControlMedicoDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Transaccion\TransaccionModel.cs" />
+    <Compile Include="Models\Usuario\UsuarioModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Repository\Archivo\Diagnostico\ArchivoDiagnosticoRepository.cs" />
+    <Compile Include="Repository\Archivo\Diagnostico\IArchivoDiagnosticoRepository.cs" />
+    <Compile Include="Repository\Archivo\Medico\ArchivoMedicoRepository.cs" />
+    <Compile Include="Repository\Archivo\Medico\IArchivoMedicoRepository.cs" />
+    <Compile Include="Repository\Archivo\Orden\ArchivoOrdenRepository.cs" />
+    <Compile Include="Repository\Archivo\Orden\IArchivoOrdenRepository.cs" />
+    <Compile Include="Repository\Archivo\Paciente\ArchivoPacienteRepository.cs" />
+    <Compile Include="Repository\Archivo\Paciente\IArchivoPacienteRepository.cs" />
+    <Compile Include="Repository\Catalogo\Escolaridad\EscolaridadRepository.cs" />
+    <Compile Include="Repository\Catalogo\Escolaridad\IEscolaridadRepository.cs" />
+    <Compile Include="Repository\Catalogo\Especialidad\EspecialidadRepository.cs" />
+    <Compile Include="Repository\Catalogo\Especimen\EspecimenRepository.cs" />
+    <Compile Include="Repository\Catalogo\EstatusCita\EstatusCitaRepository.cs" />
+    <Compile Include="Repository\Catalogo\EstatusOrden\EstatusOrdenRepository.cs" />
+    <Compile Include="Repository\Catalogo\EstatusOrden\IEstatusOrdenRepository.cs" />
+    <Compile Include="Repository\Catalogo\EstatusSuscripcion\EstatusSuscripcionRepository.cs" />
+    <Compile Include="Repository\Catalogo\Especialidad\IEspecialidadRepository.cs" />
+    <Compile Include="Repository\Catalogo\Especimen\IEspecimenRepository.cs" />
+    <Compile Include="Repository\Catalogo\EstatusCita\IEstatusCitaRepository.cs" />
+    <Compile Include="Repository\Catalogo\EstatusSuscripcion\IEstatusSuscripcionRepository.cs" />
+    <Compile Include="Repository\Catalogo\LugarNacimiento\LugarNacimientoRepository.cs" />
+    <Compile Include="Repository\Catalogo\LugarNacimiento\ILugarNacimientoRepository.cs" />
+    <Compile Include="Repository\Catalogo\Medicamento\IMedicamentoRepository.cs" />
+    <Compile Include="Repository\Catalogo\Medicamento\MedicamentoRepository.cs" />
+    <Compile Include="Repository\Catalogo\Ocupacion\IOcupacionRepository.cs" />
+    <Compile Include="Repository\Catalogo\Ocupacion\OcupacionRepository.cs" />
+    <Compile Include="Repository\Catalogo\Patologia\IPatologiaRepository.cs" />
+    <Compile Include="Repository\Catalogo\Patologia\PatologiaRepository.cs" />
+    <Compile Include="Repository\Catalogo\TipoArchivo\ITipoArchivoRepository.cs" />
+    <Compile Include="Repository\Catalogo\TipoArchivo\TipoArchivoRepository.cs" />
+    <Compile Include="Repository\Catalogo\TipoCita\ITipoCitaRepository.cs" />
+    <Compile Include="Repository\Catalogo\TipoCita\TipoCitaRepository.cs" />
+    <Compile Include="Repository\Catalogo\TipoReporteVariable\ITipoReporteVariableRepository.cs" />
+    <Compile Include="Repository\Catalogo\TipoReporteVariable\TipoReporteVariableRepository.cs" />
+    <Compile Include="Repository\Catalogo\TipoReporte\ITipoReporteRepository.cs" />
+    <Compile Include="Repository\Catalogo\TipoReporte\TipoReporteRepository.cs" />
+    <Compile Include="Repository\Cita\CitaRepository.cs" />
+    <Compile Include="Repository\Cita\ICitaRepository.cs" />
+    <Compile Include="Repository\Cliente\ClienteRepository.cs" />
+    <Compile Include="Repository\Cliente\IClienteRepository.cs" />
+    <Compile Include="Repository\ConfiguracionMedico\IConfiguracionMedicoRepository.cs" />
+    <Compile Include="Repository\ConfiguracionMedico\ConfiguracionMedicoRepository.cs" />
+    <Compile Include="Repository\ConfiguracionReporte\ConfiguracionReporteRepository.cs" />
+    <Compile Include="Repository\ConfiguracionReporte\IConfiguracionReporteRepository.cs" />
+    <Compile Include="Repository\Diagnostico\DiagnosticoRepository.cs" />
+    <Compile Include="Repository\Diagnostico\IDiagnosticoRepository.cs" />
+    <Compile Include="Repository\HistoricoOrden\HistoricoOrdenRepository.cs" />
+    <Compile Include="Repository\HistoricoOrden\IHistoricoOrdenRepository.cs" />
+    <Compile Include="Repository\InventarioMedicamento\IInventarioMedicamentoRepository.cs" />
+    <Compile Include="Repository\InventarioMedicamento\InventarioMedicamentoRepository.cs" />
+    <Compile Include="Repository\Medico\IMedicoRepository.cs" />
+    <Compile Include="Repository\Notificacion\INotificacionRepository.cs" />
+    <Compile Include="Repository\Notificacion\NotificacionRepository.cs" />
+    <Compile Include="Repository\Orden\IOrdenRepository.cs" />
+    <Compile Include="Repository\Orden\OrdenRepository.cs" />
+    <Compile Include="Repository\PacienteMedico\IPacienteMedicoRepository.cs" />
+    <Compile Include="Repository\PacienteMedico\PacienteMedicoRepository.cs" />
+    <Compile Include="Repository\Paciente\IPacienteRepository.cs" />
+    <Compile Include="Repository\Medico\MedicoRepository.cs" />
+    <Compile Include="Repository\Paciente\PacienteRepository.cs" />
+    <Compile Include="Repository\RecetaMedicamento\IRecetaMedicamentoRepository.cs" />
+    <Compile Include="Repository\RecetaMedicamento\RecetaMedicamentoRepository.cs" />
+    <Compile Include="Repository\Receta\IRecetaRepository.cs" />
+    <Compile Include="Repository\Receta\RecetaRepository.cs" />
+    <Compile Include="Repository\Suscripcion\ISuscripcionRepository.cs" />
+    <Compile Include="Repository\Suscripcion\SuscripcionRepository.cs" />
+    <Compile Include="Repository\Transaccion\ITransaccionRepository.cs" />
+    <Compile Include="Repository\Transaccion\TransaccionRepository.cs" />
+    <Compile Include="Repository\Usuario\IUsuarioRepository.cs" />
+    <Compile Include="Repository\Usuario\UsuarioRepository.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Resources\Images\healt_icon.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="libeay32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libgcc_s_dw2-1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mingwm10.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\ControlMedicoDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ControlMedicoDBModel.edmx</DependentUpon>
+      <LastGenOutput>ControlMedicoDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ControlMedicoDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ControlMedicoDBModel.edmx</DependentUpon>
+      <LastGenOutput>ControlMedicoDBModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ControlMedicoFileDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ControlMedicoFileDBModel.edmx</DependentUpon>
+      <LastGenOutput>ControlMedicoFileDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ControlMedicoFileDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ControlMedicoFileDBModel.edmx</DependentUpon>
+      <LastGenOutput>ControlMedicoFileDBModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ssleay32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="wkhtmltox0.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\ControlMedicoDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ControlMedicoDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ControlMedicoDBModel.edmx.diagram">
+      <DependentUpon>ControlMedicoDBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\EmailBody\NuevoCliente.cshtml" />
+    <EntityDeploy Include="Models\ControlMedicoFileDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ControlMedicoFileDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ControlMedicoFileDBModel.edmx.diagram">
+      <DependentUpon>ControlMedicoFileDBModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\ArtorControlMedicoApi - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\EmailBody\NuevoMedico.cshtml" />
+    <Content Include="Views\EmailBody\ReciboPago.cshtml" />
+    <Content Include="Views\EmailBody\RecordarCita.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Repository\ExistenciaMedicamento\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>37393</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:37393/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.3.0.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <p>  
+        <button class="btn btn-success btn-lg" (click)="open(vAgregar)"> 
+          <i class="fa fa-plus align-middle" aria-hidden="true"></i>
+          <span class="align-middle"> Agregar</span>
+        </button>
+        <button class="btn btn-primary btn-lg"> 
+            <i class="fa fa-edit align-middle" aria-hidden="true"></i>
+            <span class="align-middle"> Editar</span>
+        </button>
+        <button class="btn btn-secondary btn-lg"> 
+            <i class="fa fa-times align-middle" aria-hidden="true"></i>
+          <span class="align-middle"> Eliminar</span>
+        </button>    
+    </p> 
+  </div>
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <h1>
+      <img class="logo" src="assets/ngx-rocket-logo.png" alt="angular logo"/>
+      <span translate>Pacientes</span>
+    </h1>     
+  </div>
+  
+  <table class='table' *ngIf="pacientes">
+    <thead>
+        <tr>
+            <th>Numero</th>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Estado Civil</th>
+            <th>Identificacion</th>
+            <th>Activo</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let paciente of pacientes">           
+            <td>{{ paciente.IdPaciente }}</td>
+            <td>{{ paciente.Nombre }}</td>
+            <td>{{ paciente.Telefono }}</td>
+            <td>{{ paciente.EstadoCivil }}</td>
+            <td>{{ paciente.Identificacion }}</td>           
+            <td><input type="checkbox" [checked]="paciente.Activo" /></td>         
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<ng-template #vAgregar let-c="close" let-d="dismiss">
+    <form (ngSubmit)="AgregarPaciente()"  novalidate>
+      <div class="modal-header">
+        <h4 class="modal-title">Agregar Paciente</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+              <label for="exampleInputEmail1">Nombre</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su nombre">
+              <small id="emailHelp" class="form-text text-muted"></small>
+          </div>
+          <div class="form-group">
+              <label for="exampleInputEmail1">Teléfono</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su telefono">
+              <small id="emailHelp" class="form-text text-muted"></small>
+          </div>
+          <div class="form-group">
+              <label for="exampleInputEmail1">Identificacion</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese su Identificacion">
+              <small id="emailHelp" class="form-text text-muted"></small>
+          </div>
+          <div class="form-group">
+              <label for="exampleFormControlSelect1">Estado Civil</label>
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>Soltero/a</option>
+                <option>Comprometido/a</option>
+                <option>Casado/a</option>
+                <option>Divorciado/a</option>
+                <option>Viudo/a</option>              
+              </select>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-success" [hidden]="!isLoading">Guardar</button>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Cerrar</button>
+      </div>
+    </form>
+  </ng-template>  
+  
+ 
+ 

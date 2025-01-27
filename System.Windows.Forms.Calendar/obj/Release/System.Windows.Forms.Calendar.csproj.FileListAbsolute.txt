@@ -1,0 +1,6 @@
+C:\Users\cespedfe\Documents\Visual Studio 2017\Projects\ControlMedicoWinForms\System.Windows.Forms.Calendar\bin\Release\System.Windows.Forms.Calendar.dll
+C:\Users\cespedfe\Documents\Visual Studio 2017\Projects\ControlMedicoWinForms\System.Windows.Forms.Calendar\bin\Release\System.Windows.Forms.Calendar.pdb
+C:\Users\cespedfe\Documents\Visual Studio 2017\Projects\ControlMedicoWinForms\System.Windows.Forms.Calendar\obj\Release\System.Windows.Forms.Calendar.csprojResolveAssemblyReference.cache
+C:\Users\cespedfe\Documents\Visual Studio 2017\Projects\ControlMedicoWinForms\System.Windows.Forms.Calendar\obj\Release\System.Windows.Forms.Calendar.csproj.CoreCompileInputs.cache
+C:\Users\cespedfe\Documents\Visual Studio 2017\Projects\ControlMedicoWinForms\System.Windows.Forms.Calendar\obj\Release\System.Windows.Forms.Calendar.dll
+C:\Users\cespedfe\Documents\Visual Studio 2017\Projects\ControlMedicoWinForms\System.Windows.Forms.Calendar\obj\Release\System.Windows.Forms.Calendar.pdb

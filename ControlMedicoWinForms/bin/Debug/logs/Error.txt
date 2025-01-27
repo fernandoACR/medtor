@@ -1,0 +1,30 @@
+Message :Referencia a objeto no establecida como instancia de un objeto.<br/>
+StackTrace :   en ControlMedicoWinForms.Login.BackgroundWorker1_DoWork(Object sender, DoWorkEventArgs e) en C:\Users\fernando.cespedes\source\Workspaces\MedTor\Desarrollo\ControlMedico\ControlMedicoWinForms\Login.cs:línea 177
+Date :27/05/2019 05:25:04 p. m.
+
+-----------------------------------------------------------------------------
+
+Message :Referencia a objeto no establecida como instancia de un objeto.<br/>
+StackTrace :   en ControlMedicoWinForms.Login.BackgroundWorker1_DoWork(Object sender, DoWorkEventArgs e) en C:\Users\fernando.cespedes\source\Workspaces\MedTor\Desarrollo\ControlMedico\ControlMedicoWinForms\Login.cs:línea 177
+Date :27/05/2019 05:26:16 p. m.
+
+-----------------------------------------------------------------------------
+
+Message :Se han producido uno o varios errores.<br/>
+StackTrace :   en System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   en System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   en System.Threading.Tasks.Task`1.get_Result()
+   en ControlMedicoWinForms.Login.BackgroundWorker1_DoWork(Object sender, DoWorkEventArgs e) en C:\Users\fernando.cespedes\source\Workspaces\MedTor\Desarrollo\ControlMedico\ControlMedicoWinForms\Login.cs:línea 155
+Date :03/06/2019 10:17:43 p. m.
+
+-----------------------------------------------------------------------------
+
+Message :Se han producido uno o varios errores.<br/>
+StackTrace :   en System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   en System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   en System.Threading.Tasks.Task`1.get_Result()
+   en ControlMedicoWinForms.Login.BackgroundWorker1_DoWork(Object sender, DoWorkEventArgs e) en C:\Users\fernando.cespedes\source\Workspaces\MedTor\Desarrollo\ControlMedico\ControlMedicoWinForms\Login.cs:línea 155
+Date :03/06/2019 10:19:03 p. m.
+
+-----------------------------------------------------------------------------
+

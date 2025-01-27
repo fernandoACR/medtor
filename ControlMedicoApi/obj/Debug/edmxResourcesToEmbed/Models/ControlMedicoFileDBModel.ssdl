@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ControlMedicoFileDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ArchivoDiagnostico">
+    <Key>
+      <PropertyRef Name="IdArchivoDiagnostico" />
+    </Key>
+    <Property Name="IdArchivoDiagnostico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdDiagnostico" Type="int" Nullable="false" />
+    <Property Name="IdTipoArchivo" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Codigo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Archivo" Type="varbinary(max)" />
+    <Property Name="Activo" Type="int" Nullable="false" />
+    <Property Name="ExtensionArchivo" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArchivoMedico">
+    <Key>
+      <PropertyRef Name="IdArchivoMedico" />
+    </Key>
+    <Property Name="IdArchivoMedico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMedico" Type="int" Nullable="false" />
+    <Property Name="IdTipoArchivo" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Codigo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Archivo" Type="varbinary(max)" />
+    <Property Name="Activo" Type="int" Nullable="false" />
+    <Property Name="ExtensionArchivo" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArchivoOrden">
+    <Key>
+      <PropertyRef Name="IdArchivoOrden" />
+    </Key>
+    <Property Name="IdArchivoOrden" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdOrden" Type="int" Nullable="false" />
+    <Property Name="IdTipoArchivo" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Codigo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Archivo" Type="varbinary(max)" />
+    <Property Name="Activo" Type="int" Nullable="false" />
+    <Property Name="ExtensionArchivo" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ArchivoPaciente">
+    <Key>
+      <PropertyRef Name="IdArchivoPaciente" />
+    </Key>
+    <Property Name="IdArchivoPaciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPaciente" Type="int" Nullable="false" />
+    <Property Name="IdTipoArchivo" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Codigo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Archivo" Type="varbinary(max)" />
+    <Property Name="Activo" Type="int" Nullable="false" />
+    <Property Name="ExtensionArchivo" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoArchivo">
+    <Key>
+      <PropertyRef Name="IdTipoArchivo" />
+    </Key>
+    <Property Name="IdTipoArchivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Activo" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ArchivoDiagnostico_TipoArchivo">
+    <End Role="TipoArchivo" Type="Self.TipoArchivo" Multiplicity="1" />
+    <End Role="ArchivoDiagnostico" Type="Self.ArchivoDiagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoArchivo">
+        <PropertyRef Name="IdTipoArchivo" />
+      </Principal>
+      <Dependent Role="ArchivoDiagnostico">
+        <PropertyRef Name="IdTipoArchivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArchivoMedico_TipoArchivo">
+    <End Role="TipoArchivo" Type="Self.TipoArchivo" Multiplicity="1" />
+    <End Role="ArchivoMedico" Type="Self.ArchivoMedico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoArchivo">
+        <PropertyRef Name="IdTipoArchivo" />
+      </Principal>
+      <Dependent Role="ArchivoMedico">
+        <PropertyRef Name="IdTipoArchivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArchivoOrden_TipoArchivo">
+    <End Role="TipoArchivo" Type="Self.TipoArchivo" Multiplicity="1" />
+    <End Role="ArchivoOrden" Type="Self.ArchivoOrden" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoArchivo">
+        <PropertyRef Name="IdTipoArchivo" />
+      </Principal>
+      <Dependent Role="ArchivoOrden">
+        <PropertyRef Name="IdTipoArchivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArchivoPaciente_TipoArchivo">
+    <End Role="TipoArchivo" Type="Self.TipoArchivo" Multiplicity="1" />
+    <End Role="ArchivoPaciente" Type="Self.ArchivoPaciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoArchivo">
+        <PropertyRef Name="IdTipoArchivo" />
+      </Principal>
+      <Dependent Role="ArchivoPaciente">
+        <PropertyRef Name="IdTipoArchivo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ControlMedicoFileDBModelStoreContainer">
+    <EntitySet Name="ArchivoDiagnostico" EntityType="Self.ArchivoDiagnostico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArchivoMedico" EntityType="Self.ArchivoMedico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArchivoOrden" EntityType="Self.ArchivoOrden" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArchivoPaciente" EntityType="Self.ArchivoPaciente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoArchivo" EntityType="Self.TipoArchivo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ArchivoDiagnostico_TipoArchivo" Association="Self.FK_ArchivoDiagnostico_TipoArchivo">
+      <End Role="TipoArchivo" EntitySet="TipoArchivo" />
+      <End Role="ArchivoDiagnostico" EntitySet="ArchivoDiagnostico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArchivoMedico_TipoArchivo" Association="Self.FK_ArchivoMedico_TipoArchivo">
+      <End Role="TipoArchivo" EntitySet="TipoArchivo" />
+      <End Role="ArchivoMedico" EntitySet="ArchivoMedico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArchivoOrden_TipoArchivo" Association="Self.FK_ArchivoOrden_TipoArchivo">
+      <End Role="TipoArchivo" EntitySet="TipoArchivo" />
+      <End Role="ArchivoOrden" EntitySet="ArchivoOrden" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArchivoPaciente_TipoArchivo" Association="Self.FK_ArchivoPaciente_TipoArchivo">
+      <End Role="TipoArchivo" EntitySet="TipoArchivo" />
+      <End Role="ArchivoPaciente" EntitySet="ArchivoPaciente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

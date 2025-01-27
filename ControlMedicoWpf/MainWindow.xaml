@@ -1,0 +1,58 @@
+﻿<Controls:MetroWindow
+    x:Class="ControlMedicoWpf.MainWindow"
+    xmlns:DMSkin="clr-namespace:DMSkin.WPF;assembly=DMSkin.WPF"
+    xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControlMedicoWpf"
+    xmlns:controls="clr-namespace:DMSkin.WPF.Controls;assembly=DMSkin.WPF"
+    mc:Ignorable="d"
+        Title="MainWindow" ResizeMode="NoResize" ShowMaxRestoreButton="True" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="settings" />
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_cupcake}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="deploy cupcakes" />
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <HamburgerMenu:HamburgerMenu MenuIconColor="White" SelectionIndicatorColor="White" MenuItemForeground="White" HorizontalAlignment="Left">
+            <HamburgerMenu:HamburgerMenu.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF64AF9E" Offset="1"/>
+                </LinearGradientBrush>
+            </HamburgerMenu:HamburgerMenu.Background>
+            <HamburgerMenu:HamburgerMenuItem Icon="Resources/Images/catalog.png" Text="Catalogos" MouseDoubleClick="SubMenuItemMedicamentos_Click" SelectionCommand="{Binding ClickCommand}"/>
+            <HamburgerMenu:HamburgerMenuItem Icon="Resources/Images/paciente.png" MouseDoubleClick="PacientesMenuItem_MouseDoubleClick" Text="Pacientes"/>
+            <HamburgerMenu:HamburgerMenuItem Icon="Resources/Images/doctor.png" Text="Medicos"/>
+            <HamburgerMenu:HamburgerMenuItem Icon="Resources/Images/order.png" Text="Ordenes"/>
+            <HamburgerMenu:HamburgerMenuItem Icon="Resources/Images/cliente.png" Text="Clientes"/>
+            <HamburgerMenu:HamburgerMenuItem Icon="Resources/Images/citas.png" Text="Citas"/>
+            <HamburgerMenu:HamburgerMenuItem Icon="Resources/Images/expediente.png" Text="Diagnosticos"/>
+        </HamburgerMenu:HamburgerMenu>
+    </Grid>
+
+
+</Controls:MetroWindow>
